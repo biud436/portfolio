@@ -325,7 +325,9 @@ export default Vue.extend({
   },
   methods: {
     async loadPortfolioShoppingMall() {
-      const res = await this.$axios.get('/markdown/shoppingMall.md');
+      const res = await this.$axios.get(
+        'https://portfolio.biud436.com/markdown/shoppingMall.md'
+      );
       if (res) {
         const data = res.data;
         // @ts-ignore
@@ -333,7 +335,9 @@ export default Vue.extend({
       }
     },
     async loadPortfolioWeather() {
-      const res = await this.$axios.get('/markdown/weather.md');
+      const res = await this.$axios.get(
+        'https://portfolio.biud436.com/markdown/weather.md'
+      );
       if (res) {
         const data = res.data;
         // @ts-ignore
@@ -341,7 +345,9 @@ export default Vue.extend({
       }
     },
     async loadPortfolioInitial2D() {
-      const res = await this.$axios.get('/markdown/initial2D.md');
+      const res = await this.$axios.get(
+        'https://portfolio.biud436.com/markdown/initial2D.md'
+      );
       if (res) {
         const data = res.data;
         // @ts-ignore
@@ -349,7 +355,9 @@ export default Vue.extend({
       }
     },
     async loadPortfolioAndroidAppBuilder() {
-      const res = await this.$axios.get('/markdown/androidAppBuilder.md');
+      const res = await this.$axios.get(
+        'https://portfolio.biud436.com/markdown/androidAppBuilder.md'
+      );
       if (res) {
         const data = res.data;
         // @ts-ignore
@@ -357,7 +365,9 @@ export default Vue.extend({
       }
     },
     async loadPortfolioInitialEditorBuilder() {
-      const res = await this.$axios.get('/markdown/initialEditor.md');
+      const res = await this.$axios.get(
+        'https://portfolio.biud436.com/markdown/initialEditor.md'
+      );
       if (res) {
         const data = res.data;
         // @ts-ignore

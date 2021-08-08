@@ -38,6 +38,10 @@ export default {
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
 
+  static: {
+    prefix: true,
+  },
+
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     // https://go.nuxtjs.dev/typescript
@@ -52,14 +56,6 @@ export default {
     '@nuxtjs/axios',
     '@nuxt/content',
   ],
-
-  static: {
-    prefix: false,
-  },
-
-  bootstrapVue: {
-    icons: false,
-  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {},

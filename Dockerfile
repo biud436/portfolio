@@ -8,6 +8,7 @@ RUN npm install
 
 RUN npm run build
 COPY ./nginx/default.conf /etc/nginx/conf.d/default.conf
+COPY ./static/markdown /usr/src/nuxt-app/markdown
 EXPOSE 3000
 
 ENV NUXT_HOST=0.0.0.0
