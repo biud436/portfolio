@@ -89,5 +89,5 @@ export default {
     // },
   },
   devtools: true,
-  target: 'static',
+  target: 'server',
 };
