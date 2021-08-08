@@ -7,4 +7,5 @@ COPY . .
 RUN npm run build
 COPY ./nginx/default.conf /etc/nginx/conf.d/default.conf
 EXPOSE 3000
+RUN npm run generate
 CMD [ "npm", "run" ,"start" ]
