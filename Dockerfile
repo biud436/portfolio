@@ -1,11 +1,19 @@
 # FROM node:alpine
 FROM node:alpine
-WORKDIR /usr/src/app
-COPY package*.json ./
+RUN mkdir -p /usr/src/nuxt-app
+WORKDIR /usr/src/nuxt-app
+
+RUN apk update & apk upgrade
+RUN apk add git
+
+COPY . /usr/src/nuxt-app
 RUN npm install
-COPY . .
+
 RUN npm run build
 COPY ./nginx/default.conf /etc/nginx/conf.d/default.conf
 EXPOSE 3000
-RUN npm run generate
+
+ENV NUXT_HOST=0.0.0.0
+ENV NUXT_PORT=3000
+
 CMD [ "npm", "run" ,"start" ]
