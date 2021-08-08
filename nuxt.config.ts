@@ -57,29 +57,37 @@ export default {
     prefix: false,
   },
 
+  bootstrapVue: {
+    icons: false,
+  },
+
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {},
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-    extend(config: any, ctx: NuxtWebpackEnv) {
-      config.module.rules.push({
-        test: /\.md$/,
-        use: [
-          {
-            loader: 'html-loader',
-          },
-          {
-            loader: 'remark-loader',
-            options: {
-              remarkOptions: {
-                plugins: [RemarkHTML],
-              },
-            },
-          },
-        ],
-      });
+    babel: {
+      compact: true,
     },
+    // extend(config: any, ctx: NuxtWebpackEnv) {
+    //   config.module.rules.push({
+    //     test: /\.md$/,
+    //     use: [
+    //       {
+    //         loader: 'html-loader',
+    //       },
+    //       {
+    //         loader: 'remark-loader',
+    //         options: {
+    //           remarkOptions: {
+    //             plugins: [RemarkHTML],
+    //           },
+    //         },
+    //       },
+    //     ],
+    //   });
+    // },
   },
   devtools: true,
+  target: 'static',
 };
