@@ -2,9 +2,7 @@
   <section class="page-section bg-light" id="portfolio2">
     <div class="container">
       <div class="text-center">
-        <h2 class="section-heading text-uppercase">
-          진행 프로젝트 (~1년차 현업)
-        </h2>
+        <h2 class="section-heading text-uppercase">기타 프로젝트</h2>
         <h3 class="section-subheading text-muted"></h3>
       </div>
 
@@ -14,8 +12,13 @@
           <div class="row no-gutters">
             <div class="col-md-12">
               <div class="card-body">
-                <p class="card-text card-description active">
-                  <nuxt-content :document="contents.dashboard"></nuxt-content>
+                <p
+                  class="
+                    card-text-non-interactive card-description-non-interactive
+                    active
+                  "
+                >
+                  <nuxt-content :document="contents.hobby"></nuxt-content>
                 </p>
                 <br />
                 <br />
@@ -34,7 +37,7 @@ export default Vue.extend({
   data() {
     return {
       contents: {
-        dashboard: {},
+        hobby: {},
       },
     };
   },
@@ -43,9 +46,9 @@ export default Vue.extend({
   },
   methods: {
     async loadDashboardData() {
-      const markdown = await this.$content('career', 'dashboard-01').fetch();
+      const markdown = await this.$content('projects', 'hobby').fetch();
 
-      this.contents.dashboard = markdown;
+      this.contents.hobby = markdown;
     },
   },
 });

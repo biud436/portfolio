@@ -2,8 +2,9 @@
   <div>
     <master-header />
     <my-skill-list />
-    <portfolio />
     <PortfolioCareer />
+    <portfolio />
+    <hobby />
     <clients />
     <contact />
     <my-footer />
@@ -23,6 +24,7 @@ import MyFooter from '../components/MyFooter.vue';
 import ProjectList from '../components/ProjectList.vue';
 import PortfolioCareer from '../components/PortfolioCareer.vue';
 import MySkillList from '~/components/MySkillList.vue';
+import Hobby from '~/components/Hobby.vue';
 
 export default Vue.extend({
   layout: 'main',
@@ -37,6 +39,7 @@ export default Vue.extend({
     ProjectList,
     PortfolioCareer,
     MySkillList,
+    Hobby,
   },
 });
 </script>
