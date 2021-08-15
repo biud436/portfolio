@@ -38,10 +38,6 @@ export default {
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
 
-  static: {
-    prefix: true,
-  },
-
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     // https://go.nuxtjs.dev/typescript
@@ -64,6 +60,14 @@ export default {
   build: {
     babel: {
       compact: true,
+    },
+    extend(config: any, ctx: any) {
+      config.module.rules.push({
+        enforce: 'pre',
+        test: /\.md$/,
+        loader: 'raw-loader',
+        exclude: /(node_modules)/,
+      });
     },
     // extend(config: any, ctx: NuxtWebpackEnv) {
     //   config.module.rules.push({

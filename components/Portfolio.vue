@@ -39,10 +39,9 @@
             </div>
             <div class="col-md-8">
               <div class="card-body">
-                <p
-                  class="card-text card-description active"
-                  v-html="contents.shoppingMall"
-                ></p>
+                <p class="card-text card-description active">
+                  <nuxt-content :document="contents.shoppingMall" />
+                </p>
                 <br />
                 <br />
                 <h5 class="card-text">기타 :</h5>
@@ -97,10 +96,9 @@
             </div>
             <div class="col-md-8">
               <div class="card-body">
-                <p
-                  class="card-text card-description active"
-                  v-html="contents.weather"
-                ></p>
+                <p class="card-text card-description active">
+                  <nuxt-content :document="contents.weather" />
+                </p>
                 <a
                   class="btn btn-danger"
                   href="http://biud436.github.io/weather/"
@@ -155,10 +153,9 @@
             </div>
             <div class="col-md-8">
               <div class="card-body">
-                <p
-                  class="card-text card-description active"
-                  v-html="contents.initialEditor"
-                ></p>
+                <p class="card-text card-description active">
+                  <nuxt-content :document="contents.initialEditor" />
+                </p>
                 <!-- <a class="btn btn-danger" href="https://biud436.xyz:9007">HTTPS 서버(AWS EC2)</a> -->
                 <h5 class="card-text">기타 :</h5>
                 <a
@@ -210,10 +207,9 @@
             </div>
             <div class="col-md-8">
               <div class="card-body">
-                <p
-                  class="card-text card-description active"
-                  v-html="contents.androidAppBuilder"
-                ></p>
+                <p class="card-text card-description active">
+                  <nuxt-content :document="contents.androidAppBuilder" />
+                </p>
                 <h5 class="card-text">다운로드 :</h5>
                 <a
                   class="btn btn-danger"
@@ -277,10 +273,9 @@
               <div class="card-body">
                 <p class="card-text"></p>
                 <br />
-                <p
-                  class="card-text card-description active"
-                  v-html="contents.initial2D"
-                ></p>
+                <p class="card-text card-description active">
+                  <nuxt-content :document="contents.initial2D" />
+                </p>
                 <h5 class="card-text">기타 :</h5>
                 <a
                   class="btn btn-secondary"
@@ -304,15 +299,21 @@
 <script lang="ts">
 import Vue from 'vue';
 
+declare global {
+  interface Window {
+    masked: Function;
+  }
+}
+
 export default Vue.extend({
   data() {
     return {
       contents: {
-        shoppingMall: '',
-        weather: '',
-        initial2D: '',
-        androidAppBuilder: '',
-        initialEditor: '',
+        shoppingMall: {},
+        weather: {},
+        initial2D: {},
+        androidAppBuilder: {},
+        initialEditor: {},
       },
     };
   },
@@ -325,54 +326,34 @@ export default Vue.extend({
   },
   methods: {
     async loadPortfolioShoppingMall() {
-      const res = await this.$axios.get(
-        'https://portfolio.biud436.com/markdown/shoppingMall.md'
-      );
-      if (res) {
-        const data = res.data;
-        // @ts-ignore
-        this.contents.shoppingMall = window.marked(data);
-      }
+      this.contents.shoppingMall = await this.$content(
+        'projects',
+        'shoppingMall'
+      ).fetch();
     },
     async loadPortfolioWeather() {
-      const res = await this.$axios.get(
-        'https://portfolio.biud436.com/markdown/weather.md'
-      );
-      if (res) {
-        const data = res.data;
-        // @ts-ignore
-        this.contents.weather = window.marked(data);
-      }
+      this.contents.weather = await this.$content(
+        'projects',
+        'weather'
+      ).fetch();
     },
     async loadPortfolioInitial2D() {
-      const res = await this.$axios.get(
-        'https://portfolio.biud436.com/markdown/initial2D.md'
-      );
-      if (res) {
-        const data = res.data;
-        // @ts-ignore
-        this.contents.initial2D = window.marked(data);
-      }
+      this.contents.initial2D = await this.$content(
+        'projects',
+        'initial2D'
+      ).fetch();
     },
     async loadPortfolioAndroidAppBuilder() {
-      const res = await this.$axios.get(
-        'https://portfolio.biud436.com/markdown/androidAppBuilder.md'
-      );
-      if (res) {
-        const data = res.data;
-        // @ts-ignore
-        this.contents.androidAppBuilder = window.marked(data);
-      }
+      this.contents.androidAppBuilder = await this.$content(
+        'projects',
+        'androidAppBuilder'
+      ).fetch();
     },
     async loadPortfolioInitialEditorBuilder() {
-      const res = await this.$axios.get(
-        'https://portfolio.biud436.com/markdown/initialEditor.md'
-      );
-      if (res) {
-        const data = res.data;
-        // @ts-ignore
-        this.contents.initialEditor = window.marked(data);
-      }
+      this.contents.initialEditor = await this.$content(
+        'projects',
+        'initialEditor'
+      ).fetch();
     },
   },
 });

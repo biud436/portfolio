@@ -1,8 +1,9 @@
 <template>
   <div>
     <master-header />
-    <skill-list />
+    <my-skill-list />
     <portfolio />
+    <PortfolioCareer />
     <clients />
     <contact />
     <my-footer />
@@ -10,7 +11,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import Vue from 'vue';
 import MyNavBar from '../components/MyNavBar.vue';
 import MasterHeader from '../components/MasterHeader.vue';
@@ -20,6 +21,8 @@ import Clients from '../components/Clients.vue';
 import Contact from '../components/Contact.vue';
 import MyFooter from '../components/MyFooter.vue';
 import ProjectList from '../components/ProjectList.vue';
+import PortfolioCareer from '../components/PortfolioCareer.vue';
+import MySkillList from '~/components/MySkillList.vue';
 
 export default Vue.extend({
   layout: 'main',
@@ -32,6 +35,8 @@ export default Vue.extend({
     Contact,
     MyFooter,
     ProjectList,
+    PortfolioCareer,
+    MySkillList,
   },
 });
 </script>
