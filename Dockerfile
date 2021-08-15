@@ -1,17 +1,5 @@
-# FROM node:alpine
-FROM node:alpine
-RUN mkdir -p /usr/src/nuxt-app
-WORKDIR /usr/src/nuxt-app
-
-COPY . /usr/src/nuxt-app
-RUN npm install
-
-RUN npm run build
+FROM nginx:stable-alpine
 COPY ./nginx/default.conf /etc/nginx/conf.d/default.conf
-COPY ./static/markdown /usr/src/nuxt-app/markdown
+COPY ./dist /usr/share/nginx/html
 EXPOSE 3000
-
-ENV NUXT_HOST=0.0.0.0
-ENV NUXT_PORT=3000
-
-CMD [ "npm", "run" ,"start" ]
+CMD ["nginx", "-g", "daemon off;"]

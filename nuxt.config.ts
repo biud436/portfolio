@@ -4,7 +4,7 @@ import { resolve } from 'path';
 
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
-  ssr: true,
+  ssr: false,
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -20,14 +20,6 @@ export default {
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
-
-  // alias: {
-  //   '~~': resolve(__dirname, './'),
-  //   '@@': resolve(__dirname, './'),
-  //   '~': resolve(__dirname, './'),
-  //   '@': resolve(__dirname),
-  //   static: resolve(__dirname, 'static'), // (unless you have set a custom `dir.static`)
-  // },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [],
@@ -69,25 +61,8 @@ export default {
         exclude: /(node_modules)/,
       });
     },
-    // extend(config: any, ctx: NuxtWebpackEnv) {
-    //   config.module.rules.push({
-    //     test: /\.md$/,
-    //     use: [
-    //       {
-    //         loader: 'html-loader',
-    //       },
-    //       {
-    //         loader: 'remark-loader',
-    //         options: {
-    //           remarkOptions: {
-    //             plugins: [RemarkHTML],
-    //           },
-    //         },
-    //       },
-    //     ],
-    //   });
-    // },
   },
   devtools: true,
-  target: 'server',
+  // target: 'server',
+  target: 'static',
 };
