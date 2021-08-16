@@ -12,6 +12,7 @@ var title = Array.from(
     e.textContent = e.textContent.replace(' - RPG Maker MV', '');
     e.textContent = e.textContent.replace(' - RPG Maker VX Ace', '');
     e.textContent = e.textContent.replace(' - RPG Maker XP', '');
+    return e.textContent;
   })
   .reverse();
 
