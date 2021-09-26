@@ -24,6 +24,22 @@
           </div>
         </div>
       </div>
+      <div class="row">
+        <a id="career-dashboard"></a>
+        <div class="col-md-12 mb-4">
+          <div class="row no-gutters">
+            <div class="col-md-12">
+              <div class="card-body">
+                <p class="card-text card-description active">
+                  <nuxt-content :document="contents.dashboard2"></nuxt-content>
+                </p>
+                <br />
+                <br />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 </template>
@@ -35,6 +51,7 @@ export default Vue.extend({
     return {
       contents: {
         dashboard: {},
+        dashboard2: {},
       },
     };
   },
@@ -43,9 +60,11 @@ export default Vue.extend({
   },
   methods: {
     async loadDashboardData() {
-      const markdown = await this.$content('career', 'dashboard-01').fetch();
+      const markdown1 = await this.$content('career', 'dashboard-01').fetch();
+      const markdown2 = await this.$content('career', 'dashboard-02').fetch();
 
-      this.contents.dashboard = markdown;
+      this.contents.dashboard = markdown1;
+      this.contents.dashboard2 = markdown2;
     },
   },
 });
