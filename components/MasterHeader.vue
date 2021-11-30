@@ -2,7 +2,7 @@
   <header class="masthead">
     <div class="container">
       <div class="masthead-subheading">Welcome To Our Studio!</div>
-      <div class="masthead-heading text-uppercase">백엔드 프로그래머</div>
+      <div class="masthead-heading text-uppercase"></div>
       <a
         class="btn btn-primary btn-xl text-uppercase js-scroll-trigger"
         href="#portfolio"
@@ -15,4 +15,8 @@
 import Vue from 'vue';
 export default Vue.extend({});
 </script>
-<style lang="scss"></style>
+<style lang="css">
+canvas {
+  background-color: #000;
+}
+</style>

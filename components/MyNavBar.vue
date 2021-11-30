@@ -34,4 +34,8 @@
 import Vue from 'vue';
 export default Vue.extend({});
 </script>
-<style lang="scss"></style>
+<style lang="css">
+#mainNav {
+  background: #1f1f1f;
+}
+</style>

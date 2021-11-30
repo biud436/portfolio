@@ -1,12 +1,12 @@
 <template>
   <div>
     <master-header />
+    <contact />
     <my-skill-list />
     <PortfolioCareer />
     <portfolio />
     <hobby />
     <clients />
-    <contact />
     <my-footer />
     <project-list />
   </div>

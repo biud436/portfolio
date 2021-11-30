@@ -2,9 +2,7 @@
   <section class="page-section bg-light" id="portfolio2">
     <div class="container">
       <div class="text-center">
-        <h2 class="section-heading text-uppercase">
-          진행 프로젝트 (~1년차 현업)
-        </h2>
+        <h2 class="section-heading text-uppercase">진행 프로젝트</h2>
         <h3 class="section-subheading text-muted"></h3>
       </div>
 
