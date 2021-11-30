@@ -2,7 +2,7 @@
   <div class="page-section bg-white">
     <div class="container">
       <div class="text-center">
-        <h2 class="section-heading text-uppercase">My Skills</h2>
+        <h2 class="section-heading text-uppercase">소개</h2>
         <h3 class="section-subheading text-muted"></h3>
       </div>
       <div class="row">

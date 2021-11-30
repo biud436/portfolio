@@ -27,6 +27,33 @@
                 >
               </p>
             </div>
+            <div class="form-group mb-md-0">
+              <!-- <input class="form-control" id="phone" type="tel" placeholder="Your Phone *" required="required" data-validation-required-message="Please enter your phone number." /> -->
+              <p class="help-block text-light">
+                <strong>Blog : </strong
+                ><a href="https://blog.naver.com/biud436"
+                  >https://blog.naver.com/biud436</a
+                >
+              </p>
+            </div>
+            <div class="form-group mb-md-0">
+              <!-- <input class="form-control" id="phone" type="tel" placeholder="Your Phone *" required="required" data-validation-required-message="Please enter your phone number." /> -->
+              <p class="help-block text-light">
+                <strong>SoundCloud #1 : </strong
+                ><a href="https://soundcloud.com/regulus-storm"
+                  >https://soundcloud.com/regulus-storm</a
+                >
+              </p>
+            </div>
+            <div class="form-group mb-md-0">
+              <!-- <input class="form-control" id="phone" type="tel" placeholder="Your Phone *" required="required" data-validation-required-message="Please enter your phone number." /> -->
+              <p class="help-block text-light">
+                <strong>SoundCloud #2 : </strong
+                ><a href="https://soundcloud.com/biud436"
+                  >https://soundcloud.com/biud436</a
+                >
+              </p>
+            </div>
             <div class="form-group">
               <!-- <input class="form-control" id="name" type="text" placeholder="Your Name *" required="required" data-validation-required-message="Please enter your name." /> -->
               <p class="help-block text-light">
