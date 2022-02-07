@@ -36,15 +36,6 @@
                 >
               </p>
             </div>
-            <div class="form-group mb-md-0">
-              <!-- <input class="form-control" id="phone" type="tel" placeholder="Your Phone *" required="required" data-validation-required-message="Please enter your phone number." /> -->
-              <p class="help-block text-light">
-                <strong>SoundCloud : </strong
-                ><a href="https://soundcloud.com/regulus-storm"
-                  >https://soundcloud.com/regulus-storm</a
-                >
-              </p>
-            </div>
             <div class="form-group">
               <!-- <input class="form-control" id="name" type="text" placeholder="Your Name *" required="required" data-validation-required-message="Please enter your name." /> -->
               <p class="help-block text-light">
