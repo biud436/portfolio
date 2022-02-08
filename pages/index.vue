@@ -43,4 +43,13 @@ export default Vue.extend({
   },
 });
 </script>
-<style lang="scss"></style>
+<style lang="css">
+body {
+  background-color: #222222 !important;
+}
+
+nav,
+footer {
+  color: #d3d3d3;
+}
+</style>
