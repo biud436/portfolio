@@ -1,12 +1,30 @@
 export class CanvasManager {
   constructor() {
     this.initWithMembers();
-    this.createEmptyCanvas();
-    this.createContainer();
+    this.createVantaCanvas();
+    // this.createEmptyCanvas();
+    // this.createContainer();
   }
 
   initWithMembers() {
     this._canvas = document.getElementById('canvas');
+  }
+
+  createVantaCanvas() {
+    const masterHead = document.querySelector('header.masthead');
+    const c = getComputedStyle(masterHead);
+    const width = parseInt(c.width);
+    const height = parseInt(c.height);
+
+    VANTA.DOTS({
+      el: '.masthead',
+      mouseControls: true,
+      touchControls: true,
+      gyroControls: false,
+      minHeight: height / 2,
+      minWidth: width,
+      scale: 1.0,
+    });
   }
 
   createEmptyCanvas() {
