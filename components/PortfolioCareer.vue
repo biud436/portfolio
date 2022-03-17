@@ -6,66 +6,14 @@
         <h3 class="section-subheading text-muted"></h3>
       </div>
 
-      <div class="row">
+      <div class="row" v-for="(item, index) in contents" :key="index">
         <a id="career-dashboard"></a>
         <div class="col-md-12 mb-4">
           <div class="row no-gutters">
             <div class="col-md-12">
               <div class="card-body">
                 <p class="card-text card-description active">
-                  <nuxt-content :document="contents.dashboard"></nuxt-content>
-                </p>
-                <br />
-                <br />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <a id="career-dashboard"></a>
-        <div class="col-md-12 mb-4">
-          <div class="row no-gutters">
-            <div class="col-md-12">
-              <div class="card-body">
-                <p class="card-text card-description active">
-                  <nuxt-content
-                    :document="contents.dashboard1_2"
-                  ></nuxt-content>
-                </p>
-                <br />
-                <br />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <a id="career-dashboard"></a>
-        <div class="col-md-12 mb-4">
-          <div class="row no-gutters">
-            <div class="col-md-12">
-              <div class="card-body">
-                <p class="card-text card-description active">
-                  <nuxt-content :document="contents.dashboard2"></nuxt-content>
-                </p>
-                <br />
-                <br />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <a id="career-dashboard"></a>
-        <div class="col-md-12 mb-4">
-          <div class="row no-gutters">
-            <div class="col-md-12">
-              <div class="card-body">
-                <p class="card-text card-description active">
-                  <nuxt-content
-                    :document="contents.dashboard2_2"
-                  ></nuxt-content>
+                  <nuxt-content :document="item"></nuxt-content>
                 </p>
                 <br />
                 <br />
@@ -78,17 +26,13 @@
   </section>
 </template>
 <script lang="ts">
+import { IContentDocument } from '@nuxt/content/types/content';
 import Vue from 'vue';
 
 export default Vue.extend({
   data() {
     return {
-      contents: {
-        dashboard: {},
-        dashboard1_2: {},
-        dashboard2: {},
-        dashboard2_2: {},
-      },
+      contents: <IContentDocument[]>[],
     };
   },
   async mounted() {
@@ -96,21 +40,14 @@ export default Vue.extend({
   },
   methods: {
     async loadDashboardData() {
-      const markdown1 = await this.$content('career', 'dashboard-01').fetch();
-      const markdown1_2 = await this.$content(
-        'career',
-        'dashboard-01-2'
-      ).fetch();
-      const markdown2 = await this.$content('career', 'dashboard-02').fetch();
-      const markdown2_2 = await this.$content(
-        'career',
-        'dashboard-02-2'
-      ).fetch();
-
-      this.contents.dashboard = markdown1;
-      this.contents.dashboard1_2 = markdown1_2;
-      this.contents.dashboard2 = markdown2;
-      this.contents.dashboard2_2 = markdown2_2;
+      this.contents = (await this.$content(
+        'career'
+      ).fetch()) as IContentDocument[];
+      this.contents = this.contents.sort((a, b) => {
+        const prev = <string>a.path.split('/').pop();
+        const next = <string>b.path.split('/').pop();
+        return parseInt(next.slice(0, 1)) - parseInt(prev.slice(0, 1));
+      });
     },
   },
 });
