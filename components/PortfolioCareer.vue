@@ -43,6 +43,8 @@ export default Vue.extend({
       this.contents = (await this.$content(
         'career'
       ).fetch()) as IContentDocument[];
+
+      // 정렬
       this.contents = this.contents.sort((a, b) => {
         const prev = <string>a.path.split('/').pop();
         const next = <string>b.path.split('/').pop();
