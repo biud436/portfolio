@@ -1,6 +1,6 @@
 ## 사용한 기술
 
-`Electron, HTML5, CSS3, jQuery, jQuery.UI, 타입스크립트, webpack, canvas, PIXI.js, Node.js, Nest.js`
+`Electron, HTML5, CSS3, jQuery, jQuery.UI, Typescript, webpack, canvas, PIXI.js, Node.js, NextJS`
 
 ## 동작 플랫폼
 

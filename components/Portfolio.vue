@@ -2,9 +2,60 @@
   <section class="page-section bg-light" id="portfolio">
     <div class="container">
       <div class="text-center">
-        <h2 class="section-heading text-uppercase">포트폴리오</h2>
+        <h2 class="section-heading text-uppercase">개인 프로젝트</h2>
         <h3 class="section-subheading text-muted"></h3>
       </div>
+      <!-- vscode-rgss-script-compiler -->
+      <div class="row">
+        <div class="col-md-12 mb-4">
+          <div class="row no-gutters">
+            <div class="col-md-4">
+              <div class="portfolio-item">
+                <div class="portfolio-link" href="#">
+                  <div class="portfolio-hover">
+                    <div class="portfolio-hover-content">
+                      <i class="fas fa-plus fa-3x"></i>
+                    </div>
+                  </div>
+                  <img
+                    class="img-fluid"
+                    src="https://biud436.gallerycdn.vsassets.io/extensions/biud436/rgss-script-compiler/0.0.14/1648001730750/Microsoft.VisualStudio.Services.Icons.Default"
+                    width="400"
+                    height="300"
+                    alt=""
+                  />
+                </div>
+                <div class="portfolio-caption">
+                  <div class="portfolio-caption-heading">
+                    <a name="vscode-extension">RGSS 스크립트 컴파일러</a>
+                  </div>
+                  <div class="portfolio-caption-subheading text-muted">
+                    VSCode Extension
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <p class="card-text card-description active">
+                  <nuxt-content :document="contents.rgssCompiler" />
+                </p>
+                <a
+                  class="btn btn-primary"
+                  href="https://marketplace.visualstudio.com/items?itemName=biud436.rgss-script-compiler"
+                  >마켓 플레이스</a
+                >
+                <a
+                  class="btn btn-secondary"
+                  href="https://github.com/biud436/vscode-rgss-script-compiler"
+                  >깃허브로 이동</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 쇼핑몰 / 2020.10.01 ~ 2021.01.05 (3개월) -->
       <div class="row">
         <a id="shopping"></a>
         <div class="col-md-12 mb-4">
@@ -37,6 +88,7 @@
                 </div>
               </div>
             </div>
+
             <div class="col-md-8">
               <div class="card-body">
                 <p class="card-text card-description active">
@@ -61,6 +113,7 @@
           </div>
         </div>
       </div>
+      <!-- 주간 날씨 (2020년 09월 25일) -->
       <div class="row">
         <div class="col-md-12 mb-4">
           <div class="row no-gutters">
@@ -120,6 +173,7 @@
           </div>
         </div>
       </div>
+      <!-- 3 맵 에디터 / 2020.10.01 ~ 2020.12 (2개월) -->
       <div class="row">
         <div class="col-md-12 mb-4">
           <div class="row no-gutters">
@@ -174,6 +228,7 @@
           </div>
         </div>
       </div>
+      <!-- 안드로이드 APK 빌더 / 2019.11 ~ 2020.02 (3개월) -->
       <div class="row">
         <div class="col-md-12 mb-4">
           <div class="row no-gutters">
@@ -238,6 +293,7 @@
           </div>
         </div>
       </div>
+      <!-- Initial2D (게임 엔진) -->
       <div class="row">
         <div class="col-md-12 mb-4">
           <div class="row no-gutters">
@@ -314,15 +370,17 @@ export default Vue.extend({
         initial2D: {},
         androidAppBuilder: {},
         initialEditor: {},
+        rgssCompiler: {},
       },
     };
   },
   async mounted() {
     await this.loadPortfolioShoppingMall();
     await this.loadPortfolioWeather();
-    await this.loadPortfolioAndroidAppBuilder();
     await this.loadPortfolioInitial2D();
+    await this.loadPortfolioAndroidAppBuilder();
     await this.loadPortfolioInitialEditorBuilder();
+    await this.loadRGSSCompiler();
   },
   methods: {
     async loadPortfolioShoppingMall() {
@@ -353,6 +411,12 @@ export default Vue.extend({
       this.contents.initialEditor = await this.$content(
         'projects',
         'initialEditor'
+      ).fetch();
+    },
+    async loadRGSSCompiler() {
+      this.contents.rgssCompiler = await this.$content(
+        'projects',
+        'rgssCompiler'
       ).fetch();
     },
   },
