@@ -5,6 +5,51 @@
         <h2 class="section-heading text-uppercase">개인 프로젝트</h2>
         <h3 class="section-subheading text-muted"></h3>
       </div>
+      <!-- weather-react -->
+      <div class="row">
+        <div class="col-md-12 mb-4">
+          <div class="row no-gutters">
+            <div class="col-md-4">
+              <div class="portfolio-item">
+                <div class="portfolio-link" href="#">
+                  <div class="portfolio-hover">
+                    <div class="portfolio-hover-content">
+                      <i class="fas fa-plus fa-3x"></i>
+                    </div>
+                  </div>
+                  <img
+                    class="img-fluid"
+                    src="https://user-images.githubusercontent.com/13586185/169680914-72cf246c-e00c-4c33-8c31-00228a08313a.gif"
+                    width="400"
+                    height="300"
+                    alt=""
+                  />
+                </div>
+                <div class="portfolio-caption">
+                  <div class="portfolio-caption-heading">
+                    <a name="vscode-extension">날씨 (리액트 버전)</a>
+                  </div>
+                  <div class="portfolio-caption-subheading text-muted">
+                    날씨
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <p class="card-text card-description active">
+                  <nuxt-content :document="contents.weatherReact" />
+                </p>
+                <a
+                  class="btn btn-secondary"
+                  href="https://github.com/biud436/weather-react"
+                  >깃허브로 이동</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <!-- vscode-rgss-script-compiler -->
       <div class="row">
         <div class="col-md-12 mb-4">
@@ -371,6 +416,7 @@ export default Vue.extend({
         androidAppBuilder: {},
         initialEditor: {},
         rgssCompiler: {},
+        weatherReact: {},
       },
     };
   },
@@ -381,6 +427,7 @@ export default Vue.extend({
     await this.loadPortfolioAndroidAppBuilder();
     await this.loadPortfolioInitialEditorBuilder();
     await this.loadRGSSCompiler();
+    await this.loadWeatherReact();
   },
   methods: {
     async loadPortfolioShoppingMall() {
@@ -417,6 +464,12 @@ export default Vue.extend({
       this.contents.rgssCompiler = await this.$content(
         'projects',
         'rgssCompiler'
+      ).fetch();
+    },
+    async loadWeatherReact() {
+      this.contents.weatherReact = await this.$content(
+        'projects',
+        'weatherReact'
       ).fetch();
     },
   },
