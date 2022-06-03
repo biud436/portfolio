@@ -6,6 +6,15 @@
 
 2021.12 ~ 2021.12
 
+## 사용 기술
+
+- Nest.js (Node.js Express)
+- TypeORM
+- Nuxt.js (Vue.js)
+- MySQL
+- AWS EC2 (Linux Ubuntu Server)
+- Docker
+
 ## 프로젝트 기여도
 
 100% (풀스택)

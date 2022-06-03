@@ -6,6 +6,16 @@
 
 2021.08 ~ 2021.10 (3개월)
 
+## 사용 기술
+
+- Nest.js (Node.js Express)
+- SequelizeORM (초기)
+- TypeORM (추후 마이그레이션)
+- Nuxt.js (Vue.js)
+- MySQL
+- AWS EC2 (Linux Ubuntu Server)
+- Docker
+
 ## 프로젝트 기여도
 
 100% (풀스택)
