@@ -6,9 +6,14 @@
 
 2022.02.14 ~ 2022.04.22 (총 3개월)
 
-## 사용 프레임워크
+## 사용 기술
 
-Nest.js (Node.js Express)
+- Nest.js (Node.js Express)
+- TypeORM
+- MariaDB
+- Linux (Ubuntu Server)
+- Nginx
+- Docker
 
 ## 프로젝트 기여도
 

@@ -14,6 +14,7 @@
 - Nuxt.js (Vue.js)
 - MySQL
 - AWS EC2 (Linux Ubuntu Server)
+- Nginx
 - Docker
 
 ## 프로젝트 기여도

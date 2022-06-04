@@ -8,7 +8,7 @@
 
 ## 사용 기술
 
-- Node.js
+- Node.js (Typescript)
 - TypeORM
 
 ## 프로젝트 기여도

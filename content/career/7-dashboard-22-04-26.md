@@ -8,7 +8,10 @@
 
 ## 사용 라이브러리
 
-React (Typescript), Mobx, Recoil, MUI
+- React (Typescript)
+- Mobx
+- Recoil
+- MUI
 
 ## 프로젝트 기여도
 

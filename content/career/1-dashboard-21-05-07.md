@@ -13,6 +13,7 @@
 - Redis
 - Socket.io
 - Docker
+- AWS EC2 (Linux Ubuntu Server)
 - Vue.js
 
 ## 프로젝트 기여도
