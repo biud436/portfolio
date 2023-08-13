@@ -8,7 +8,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: '포트폴리오',
+    title: '어진석의 포트폴리오',
     htmlAttrs: {
       lang: 'ko',
     },
@@ -17,6 +17,13 @@ export default {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: '' },
       { name: 'format-detection', content: 'telephone=no' },
+      // description
+      {
+        hid: 'description',
+        name: 'description',
+        content:
+          '어떤 프로젝트를 진행했는지 알려주는 저의 포트폴리오 사이트입니다.',
+      },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
