@@ -1,6 +1,13 @@
 ## 사용한 기술
 
-`Electron, HTML5, CSS3, jQuery, jQuery.UI, Typescript, webpack, canvas, PIXI.js, Node.js, NextJS`
+- Electron
+- HTML5/CSS3
+- Typescript
+- webpack
+- canvas
+- PIXI.js
+- Node.js
+- NextJS
 
 ## 동작 플랫폼
 

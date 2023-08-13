@@ -16,7 +16,13 @@
 
 ## 소개
 
-이 프레임워크는 공부 목적으로 시작된 자체 개발 NodeJS 서버 프레임워크이며, Controller, Get, Post, Patch, Delete, Put, InjectRepository, Req, Body, Header 데코레이터를 지원합니다.
+이 프레임워크는 공부 목적으로 시작된 자체 개발 NodeJS 서버 프레임워크입니다.
+`Controller, Get, Post, Patch, Delete, Put, InjectRepository, Req, Body, Header` 데코레이터를 지원합니다.
+TypeORM을 통해 DB 연결을 지원하며 의존성 주입과 메타데이터 스캐너를 구현하여 라우터를 자동으로 등록합니다.
+
+### 사용 예시
+
+다음은 타입스크립트로 작성된 컨트롤러 파일입니다.
 
 ```ts
 /* eslint-disable @typescript-eslint/no-unused-vars */

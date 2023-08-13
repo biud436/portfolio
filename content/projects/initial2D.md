@@ -1,6 +1,16 @@
 ## 사용한 기술
 
-`C++, Lua, Zlib, libpng, SDL2, SDL Audio, OpenAL, TinyXML, GDI, JSON, SQLite3`
+- C++
+- Lua
+- Zlib
+- libpng
+- SDL2
+- SDL Audio
+- OpenAL
+- TinyXML
+- GDI
+- JSON
+- SQLite3
 
 ## 동작 플랫폼
 

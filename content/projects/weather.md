@@ -1,6 +1,13 @@
 ## 사용한 기술
 
-`HTML5, CSS3, jQuery, 모던 자바스크립트, Webpack, canvas, Open Weather, Font Awesome`
+- HTML5
+- CSS3
+- jQuery
+- 모던 자바스크립트
+- Webpack
+- canvas
+- Open Weather
+- Font Awesome
 
 ## 동작 플랫폼
 

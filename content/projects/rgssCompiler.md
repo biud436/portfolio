@@ -1,6 +1,9 @@
 ## 사용한 기술
 
-`Typescript, Ruby`
+- Node.js
+- VSCode Extension API
+- Typescript
+- Ruby
 
 ## 동작 플랫폼
 

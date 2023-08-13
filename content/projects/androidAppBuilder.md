@@ -1,6 +1,8 @@
 ## 사용한 기술
 
-`C# Winform, Cordova CLI, Node.js`
+- C# Winform
+- Cordova CLI
+- Node.js
 
 ## 동작 플랫폼
 

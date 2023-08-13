@@ -1,6 +1,10 @@
 ## 사용한 기술
 
-`React.js, Mobx, Docker, AWS EC2, AWS Code Deploy`
+- React.js
+- Mobx
+- Docker
+- AWS EC2
+- AWS Code Deploy
 
 ## 동작 플랫폼
 
