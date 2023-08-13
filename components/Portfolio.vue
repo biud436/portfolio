@@ -5,6 +5,57 @@
         <h2 class="section-heading text-uppercase">개인 프로젝트</h2>
         <h3 class="section-subheading text-muted"></h3>
       </div>
+      <!-- blog -->
+      <div class="row">
+        <div class="col-md-12 mb-4">
+          <div class="row no-gutters">
+            <div class="col-md-4">
+              <div class="portfolio-item">
+                <div class="portfolio-link" href="#">
+                  <div class="portfolio-hover">
+                    <div class="portfolio-hover-content">
+                      <i class="fas fa-plus fa-3x"></i>
+                    </div>
+                  </div>
+                  <img
+                    class="img-fluid"
+                    src="https://github.com/biud436/blog-api-server/assets/13586185/6279ed5b-9eec-4d59-bba6-d0961b107ebb"
+                    width="400"
+                    height="300"
+                    alt=""
+                  />
+                </div>
+                <div class="portfolio-caption">
+                  <div class="portfolio-caption-heading">
+                    <a name="vscode-extension">블로그</a>
+                  </div>
+                  <div class="portfolio-caption-subheading text-muted">
+                    웹사이트
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <p class="card-text card-description active">
+                  <nuxt-content :document="contents.blog" />
+                </p>
+                <a
+                  class="btn btn-secondary"
+                  href="https://github.com/biud436/blog-api-server"
+                  >서버 : Github 저장소</a
+                >
+                <a
+                  class="btn btn-secondary"
+                  href="https://github.com/biud436/blog-front"
+                  >프론트 : Github 저장소</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <!-- weather-react -->
       <div class="row">
         <div class="col-md-12 mb-4">
@@ -417,6 +468,7 @@ export default Vue.extend({
         initialEditor: {},
         rgssCompiler: {},
         weatherReact: {},
+        blog: {},
       },
     };
   },
@@ -428,6 +480,7 @@ export default Vue.extend({
     await this.loadPortfolioInitialEditorBuilder();
     await this.loadRGSSCompiler();
     await this.loadWeatherReact();
+    await this.loadBlog();
   },
   methods: {
     async loadPortfolioShoppingMall() {
@@ -471,6 +524,9 @@ export default Vue.extend({
         'projects',
         'weatherReact'
       ).fetch();
+    },
+    async loadBlog() {
+      this.contents.blog = await this.$content('projects', 'blog').fetch();
     },
   },
 });

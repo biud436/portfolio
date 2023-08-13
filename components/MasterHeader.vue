@@ -6,7 +6,7 @@
       <a
         class="btn btn-primary btn-xl text-uppercase js-scroll-trigger"
         href="#portfolio"
-        >포트폴리오 목록 확인</a
+        >개인프로젝트 목록 확인</a
       >
     </div>
   </header>

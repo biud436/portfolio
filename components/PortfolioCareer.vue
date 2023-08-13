@@ -2,7 +2,7 @@
   <section class="page-section bg-light" id="portfolio2">
     <div class="container">
       <div class="text-center">
-        <h2 class="section-heading text-uppercase">진행 프로젝트</h2>
+        <h2 class="section-heading text-uppercase">업무 경험</h2>
         <h3 class="section-subheading text-muted"></h3>
       </div>
 
@@ -44,11 +44,19 @@ export default Vue.extend({
         'career'
       ).fetch()) as IContentDocument[];
 
+      const re = /^([\d]+)\-(.*)/;
+
       // 정렬
       this.contents = this.contents.sort((a, b) => {
         const prev = <string>a.path.split('/').pop();
         const next = <string>b.path.split('/').pop();
-        return parseInt(next.slice(0, 1)) - parseInt(prev.slice(0, 1));
+
+        const group1 = re.exec(prev)!;
+        const group2 = re.exec(next)!;
+
+        return parseInt(group2[1], 10) - parseInt(group1[1], 10);
+
+        // return parseInt(next.slice(0, 1)) - parseInt(prev.slice(0, 1));
       });
     },
   },
