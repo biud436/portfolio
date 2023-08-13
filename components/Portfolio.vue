@@ -5,6 +5,52 @@
         <h2 class="section-heading text-uppercase">개인 프로젝트</h2>
         <h3 class="section-subheading text-muted"></h3>
       </div>
+      <!-- custom server framework -->
+      <div class="row">
+        <div class="col-md-12 mb-4">
+          <div class="row no-gutters">
+            <div class="col-md-4">
+              <div class="portfolio-item">
+                <div class="portfolio-link" href="#">
+                  <div class="portfolio-hover">
+                    <div class="portfolio-hover-content">
+                      <i class="fas fa-plus fa-3x"></i>
+                    </div>
+                  </div>
+                  <img
+                    class="img-fluid"
+                    src="https://github.com/biud436/blog-front/assets/13586185/40629880-5785-4733-a95f-24f9f2b23641"
+                    width="400"
+                    height="300"
+                    alt=""
+                  />
+                </div>
+                <div class="portfolio-caption">
+                  <div class="portfolio-caption-heading">
+                    <a name="vscode-extension">자체 개발 서버 프레임워크</a>
+                  </div>
+                  <div class="portfolio-caption-subheading text-muted">
+                    프레임워크
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <p class="card-text card-description active">
+                  <nuxt-content :document="contents.customServer" />
+                </p>
+                <a
+                  class="btn btn-secondary"
+                  href="https://github.com/biud436/custom-server-framework"
+                  >Github 저장소</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <!-- blog -->
       <div class="row">
         <div class="col-md-12 mb-4">
@@ -469,6 +515,7 @@ export default Vue.extend({
         rgssCompiler: {},
         weatherReact: {},
         blog: {},
+        customServer: {},
       },
     };
   },
@@ -481,6 +528,7 @@ export default Vue.extend({
     await this.loadRGSSCompiler();
     await this.loadWeatherReact();
     await this.loadBlog();
+    await this.loadCustomServer();
   },
   methods: {
     async loadPortfolioShoppingMall() {
@@ -527,6 +575,12 @@ export default Vue.extend({
     },
     async loadBlog() {
       this.contents.blog = await this.$content('projects', 'blog').fetch();
+    },
+    async loadCustomServer() {
+      this.contents.customServer = await this.$content(
+        'projects',
+        'customServer'
+      ).fetch();
     },
   },
 });
