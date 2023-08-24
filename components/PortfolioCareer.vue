@@ -43,21 +43,46 @@
           <span class="text-muted">2021.04 ~ 현재</span>
         </div>
 
-        <div class="row" v-for="(item, index) in contents" :key="index">
-          <a id="career-dashboard"></a>
-          <div class="col-md-12 mb-4">
-            <div class="row no-gutters">
-              <div class="col-md-12">
-                <div class="card-body">
-                  <p class="card-text card-description active">
-                    <nuxt-content :document="item"></nuxt-content>
-                  </p>
-                  <br />
-                  <br />
+        <div class="px-5 pb-3 lead text-muted mt-3 bg-body-tertiary p-3 mb-1">
+          <h6 class="text-muted mb-3 font-weight-bold lead">주요 업무</h6>
+          <ul class="list-unstyled mb-0 text-muted small">
+            <li class="mb-2">
+              <i class="fas fa-check mr-2"></i> 앱과 연계되는 백엔드 서버 개발
+              및 유지 보수
+            </li>
+            <li class="mb-2">
+              <i class="fas fa-check mr-2"></i> 자사 제품과 연동되는 대시보드
+              사이트 개발 및 유지 보수
+            </li>
+            <li class="mb-2">
+              <i class="fas fa-check mr-2"></i> 인프라 구축, 운영, 배포 등
+              전반적인 DevOps 구축 및 관리
+            </li>
+          </ul>
+        </div>
+
+        <div class="px-5 mb-5 pb-3 lead text-muted bg-body-tertiary p-3">
+          <details>
+            <summary class="text-muted mb-3 font-weight-bold">
+              상세 내용
+            </summary>
+            <div class="row" v-for="(item, index) in contents" :key="index">
+              <a id="career-dashboard"></a>
+              <div class="col-md-12 mb-4">
+                <div class="row no-gutters">
+                  <div class="col-md-12">
+                    <div class="card-body">
+                      <p class="card-text card-description active">
+                        <nuxt-content :document="item"></nuxt-content>
+                      </p>
+                      <br />
+                      <br />
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          </details>
         </div>
       </div>
     </div>

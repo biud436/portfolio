@@ -27,7 +27,7 @@
                 </div>
                 <div class="portfolio-caption">
                   <div class="portfolio-caption-heading">
-                    <a name="vscode-extension">자체 개발 서버 프레임워크</a>
+                    <a name="vscode-extension">StingerLoom</a>
                   </div>
                   <div class="portfolio-caption-subheading text-muted">
                     프레임워크
@@ -42,7 +42,7 @@
                 </p>
                 <a
                   class="btn btn-secondary"
-                  href="https://github.com/biud436/custom-server-framework"
+                  href="https://github.com/biud436/stingerloom"
                   >Github 저장소</a
                 >
               </div>
