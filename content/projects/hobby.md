@@ -1,4 +1,4 @@
-<details open><summary>Ruby Game Scripting System (RGSS)</summary>
+<details><summary>Ruby Game Scripting System (RGSS)</summary>
 
 - 눈보라 효과가 적용된 타이틀 메뉴 - 2014. 6. 27.
 - 그림 애니메이션 - 2014. 6. 27.
@@ -104,7 +104,7 @@
 
 </details>
 
-<details open><summary>JGSS (Javascript Game Scripting System: MV, MZ)</summary>
+<details><summary>JGSS (Javascript Game Scripting System: MV, MZ)</summary>
 
 - 한글 이름 입력의 처리 (IME) - 2015. 10. 19.
 - 대화 시 이벤트 원래 방향 유지 - 2015. 11. 7.

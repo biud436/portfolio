@@ -244,12 +244,6 @@
                   href="https://github.com/biud436/project_one"
                   >깃허브</a
                 >
-                <a
-                  class="portfolio-link btn btn-success"
-                  data-toggle="modal"
-                  href="#portfolioModal1"
-                  >상세 설명</a
-                >
               </div>
             </div>
           </div>
@@ -304,12 +298,6 @@
                   href="https://github.com/biud436/weather"
                   >깃허브로 이동</a
                 >
-                <a
-                  class="portfolio-link btn btn-success"
-                  data-toggle="modal"
-                  href="#portfolioModal2"
-                  >상세 설명</a
-                >
               </div>
             </div>
           </div>
@@ -358,12 +346,6 @@
                   class="btn btn-secondary"
                   href="https://github.com/biud436/InitialEditor"
                   >깃허브로 이동</a
-                >
-                <a
-                  class="portfolio-link btn btn-success"
-                  data-toggle="modal"
-                  href="#portfolioModal3"
-                  >상세 설명</a
                 >
               </div>
             </div>
@@ -424,12 +406,6 @@
                   href="https://github.com/biud436/MV-App-Builder"
                   >깃허브</a
                 >
-                <a
-                  class="portfolio-link btn btn-success"
-                  data-toggle="modal"
-                  href="#portfolioModal5"
-                  >상세 설명</a
-                >
               </div>
             </div>
           </div>
@@ -479,12 +455,6 @@
                   class="btn btn-secondary"
                   href="https://github.com/biud436/Initial2D"
                   >깃허브</a
-                >
-                <a
-                  class="portfolio-link btn btn-success"
-                  data-toggle="modal"
-                  href="#portfolioModal6"
-                  >상세 설명</a
                 >
               </div>
             </div>
