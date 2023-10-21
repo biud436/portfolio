@@ -1,4 +1,4 @@
-자체 개발한 Node.js Server Framework입니다.
+이 서버 프레임워크는 DI 와 IoC를 지원하는 타입스크립트 기반 프레임워크이며 오픈 소스입니다. AOP와 프록시 기술을 통해 트랜잭션 처리를 자동화하며 데코레이터를 통해 메타데이터를 수집하고 route 경로를 자동으로 매핑합니다. 이 프레임워크는 NestJS를 더 깊이 이해하기 위해 시작되었는데요. 단순 학습 용도를 떠나 실제로 쓸 수 있는 인증 부분을 포함한 서버 개발에 필요한 필수적인 기능들이 더해져 하나의 프레임워크로 발전해가고 있습니다. 제 고민의 흔적들은 아래 링크에서 확인하실 수 있습니다.
 
 ## 사용한 기술
 
@@ -10,48 +10,6 @@
 - class-transformer
 - class-validator
 - http-status
-
-## 사용법
-
-이 프레임워크는 `Controller`, `Get`, `Post`, `Patch`, `Delete`, `Put`, `InjectRepository`, `Req`, `Body`, `Header`, `ExceptionFilter`, `Catch`, `BeforeCatch`, `AfterCatch`, `Injectable` 데코레이터를 지원합니다.
-
-### Controller
-
-컨트롤러는 클라이언트가 보내는 요청을 처리하고 응답하는 클래스입니다.
-
-`@Controller` 데코레이터는 HTTP 요청을 특정 경로에 해당하는 컨트롤러로 보내기 위한 메타데이터를 수집하며, 알맞은 라우팅 맵을 형성할 수 있도록 해줍니다.
-
-```ts
-@Controller('/user')
-export class UserController {
-  constructor(
-    // Point는 injectable한 클래스가 아니므로 매번 인스턴스화됩니다.
-    private readonly point: Point,
-    // UserService는 injectable한 클래스이므로 싱글톤 인스턴스로 관리됩니다.
-    private readonly userService: UserService
-  ) {}
-
-  @Get('/point')
-  async getPoint() {
-    this.point.move(5, 5);
-    return {
-      x: this.point.x,
-      y: this.point.y,
-    };
-  }
-
-  @Post()
-  public async create(@Body() createUserDto: CreateUserDto) {
-    return await this.userService.create(createUserDto);
-  }
-
-  @Header('Content-Type', 'application/json')
-  @Get()
-  public async getUser(@Req() req: FastifyRequest) {
-    return await this.userService.getUser(req.ip);
-  }
-}
-```
 
 ## 동작 플랫폼
 

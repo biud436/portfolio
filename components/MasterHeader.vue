@@ -1,12 +1,12 @@
 <template>
   <header class="masthead">
     <div class="container">
-      <div class="masthead-subheading">Welcome To Our Studio!</div>
+      <div class="masthead-subheading">Welcome To My Portfolio</div>
       <div class="masthead-heading text-uppercase"></div>
       <a
         class="btn btn-primary btn-xl text-uppercase js-scroll-trigger"
         href="#portfolio"
-        >개인프로젝트 목록 확인</a
+        >프로젝트 목록 확인</a
       >
     </div>
   </header>
