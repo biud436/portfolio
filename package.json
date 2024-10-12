@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "nuxt --hostname 192.168.35.111 --port 3000",
+    "dev": "nuxt --port 3000",
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
@@ -11,18 +11,18 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.14.8",
-    "@nuxt/content": "^1.14.0",
+    "@nuxt/content": "^1.15.1",
     "@nuxtjs/axios": "^5.13.6",
     "bootstrap": "^4.6.0",
     "bootstrap-vue": "^2.21.2",
     "core-js": "^3.15.1",
     "jquery": "^1.9.1",
-    "nuxt": "^2.15.2",
+    "nuxt": "^2.18.1",
     "remark-html": "^14.0.0"
   },
   "devDependencies": {
     "@babel/plugin-transform-runtime": "^7.15.0",
-    "@nuxt/types": "^2.15.7",
+    "@nuxt/types": "^2.18.1",
     "@nuxt/typescript-build": "^2.1.0",
     "eslint-config-prettier": "^8.3.0",
     "prettier": "^2.3.2",

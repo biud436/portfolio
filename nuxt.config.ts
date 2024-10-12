@@ -1,7 +1,3 @@
-import { NuxtWebpackEnv } from '@nuxt/types/config/build';
-import RemarkHTML from 'remark-html';
-import { resolve } from 'path';
-
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,

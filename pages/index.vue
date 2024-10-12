@@ -3,7 +3,8 @@
     <master-header />
     <contact />
     <my-skill-list />
-    <PortfolioCareer />
+    <PortfolioCareerCarnotfleet />
+    <PortfolioCareerHarven />
     <portfolio />
     <hobby />
     <clients />
@@ -22,7 +23,8 @@ import Clients from '../components/Clients.vue';
 import Contact from '../components/Contact.vue';
 import MyFooter from '../components/MyFooter.vue';
 import ProjectList from '../components/ProjectList.vue';
-import PortfolioCareer from '../components/PortfolioCareer.vue';
+import PortfolioCareerHarven from '../components/PortfolioCareerHarven.vue';
+import PortfolioCareerCarnotfleet from '~/components/PortfolioCareerCarnotfleet.vue';
 import MySkillList from '~/components/MySkillList.vue';
 import Hobby from '~/components/Hobby.vue';
 
@@ -37,7 +39,7 @@ export default Vue.extend({
     Contact,
     MyFooter,
     ProjectList,
-    PortfolioCareer,
+    PortfolioCareerHarven,
     MySkillList,
     Hobby,
   },

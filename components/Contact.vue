@@ -5,7 +5,7 @@
         <h2 class="section-heading text-uppercase">Profile</h2>
         <h3 class="section-subheading text-muted"></h3>
       </div>
-      <form id="contactForm" name="sentMessage" novalidate="novalidate">
+      <form id="contactForm" name="sentMessage">
         <div class="row align-items-stretch mb-5">
           <div class="col-md-6">
             <div class="form-group form-group-textarea mb-md-0">
