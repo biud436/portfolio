@@ -7,7 +7,8 @@
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
-    "build:spa": "nuxt build --spa"
+    "build:spa": "nuxt build --spa",
+    "build:cloudflare": "npm run build:spa && npm run generate --spa"
   },
   "dependencies": {
     "@babel/runtime": "^7.14.8",
