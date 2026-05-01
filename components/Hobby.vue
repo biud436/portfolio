@@ -17,7 +17,8 @@
 </template>
 
 <script setup lang="ts">
-const { data: hobby } = await useAsyncData('projects-hobby', () =>
-  queryCollection('projects').path('/projects/hobby').first(),
-)
+const { data: hobby } = await useAsyncData('projects-hobby', async () => {
+  const all = await queryCollection('projects').all()
+  return all.find((c) => String(c.path).endsWith('/hobby')) ?? null
+})
 </script>

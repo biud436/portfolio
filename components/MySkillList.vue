@@ -1,13 +1,19 @@
 <template>
-  <section v-if="skill" class="section">
+  <section class="section">
     <div class="section-inner">
       <div class="text-center">
         <span class="eyebrow">About</span>
         <h2 class="section-title">자기소개</h2>
       </div>
 
-      <article class="surface mx-auto mt-12 max-w-3xl px-6 py-8 sm:px-10 sm:py-10">
-        <ContentRenderer :value="skill" class="prose-invert-tight" />
+      <article
+        class="surface mx-auto mt-12 max-w-3xl px-6 py-8 sm:px-10 sm:py-10"
+      >
+        <ContentRenderer
+          v-if="skill"
+          :value="skill"
+          class="prose-invert-tight"
+        />
       </article>
     </div>
   </section>
@@ -15,6 +21,6 @@
 
 <script setup lang="ts">
 const { data: skill } = await useAsyncData('skill-skillList', () =>
-  queryCollection('skills').path('/skillList').first(),
+  queryCollection('skills').first(),
 )
 </script>

@@ -1,9 +1,8 @@
 <template>
   <div>
     <MasterHeader />
-    <Contact />
     <MySkillList />
-    <SkillList />
+    <Contact />
 
     <section id="career" class="section">
       <div class="section-inner">
