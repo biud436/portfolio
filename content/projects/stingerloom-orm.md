@@ -1,30 +1,32 @@
-## 사용한 기술
+PostgreSQL, MySQL, SQLite 를 다룰 수 있는 TypeScript ORM 입니다. 운영 환경에서 그대로 쓸 수 있는 수준을 목표로 잡고 만들었고, npm 에 `@stingerloom/orm` 으로 배포 중입니다. 현재 v0.20.0 까지 릴리스했습니다.
 
-- TypeScript (strict mode)
-- Node.js
-- PostgreSQL / MySQL / SQLite
-- reflect-metadata (데코레이터 메타데이터)
-- AsyncLocalStorage (테넌트 컨텍스트 격리)
-- Proxy 기반 Query DSL
+## 멀티 테넌시
 
-## 동작 플랫폼
+가장 직접 부딪혀 보고 싶었던 주제였습니다. SaaS 환경에서 한 인스턴스가 여러 테넌트의 데이터를 다루려면 메타데이터 분리와 런타임 컨텍스트 격리가 동시에 풀려야 합니다.
 
-Node.js — 프레임워크 비종속(NestJS / Fastify / Express / Hono 등)
+Docker 의 OverlayFS 가 파일 시스템을 레이어로 쌓는 구조에서 아이디어를 가져와, 베이스 메타데이터 위에 테넌트별 메타데이터를 얹는 계층형 모델로 만들었습니다. 컨텍스트는 AsyncLocalStorage 로 격리해서 요청과 요청 사이에 데이터가 새지 않도록 했습니다.
 
-## 소개
+## 타입 안전한 Query DSL
 
-StingerLoom 프레임워크에서 분리하여 **독립형 OSS 패키지**로 발전시킨 데코레이터 기반 TypeScript ORM 입니다. 어떤 Node.js 환경에서도 사용할 수 있도록 설계했고, npm 에 `@stingerloom/orm` 으로 배포 중입니다.
+쿼리 인터페이스는 Proxy 로 구현했습니다. 빌드 단계의 코드 생성 없이도 모든 컬럼에 IDE 자동완성이 동작하고, 집계 / 윈도우 함수 / CASE-WHEN / 서브쿼리 / JSON path 까지 모두 타입 안전한 표현식으로 자유롭게 합성됩니다.
 
-핵심 특징:
+```ts
+const u = qAlias(User, 'u')
+em.repository(User)
+  .createQueryBuilder()
+  .select(u.id, u.email, count(u.id).as('count'))
+  .where(u.email.like('%@example.com'))
+  .groupBy(u.tenantId)
+  .having(count(u.id).gt(10))
+  .getMany()
+```
 
-- **데코레이터 우선 설계** — 엔티티, 관계, 라이프사이클 훅, 검증을 모두 TypeScript 데코레이터로 정의. 컬럼 타입은 자동 추론됩니다.
-- **타입 안전한 Query DSL (Proxy 기반, 코드 생성 없음)** — `qAlias(Entity, "u")` 만 호출하면 IDE 자동완성으로 모든 컬럼에 접근 가능. `.eq / .gt / .like / .in`, 집계(`.count() / .sum() / .avg()`), CAST, 날짜 함수, 윈도우 함수, CASE/WHEN, 서브쿼리, JSON path 까지 모두 타입 안전한 표현식으로 `where() / having() / select()` 에서 자유롭게 합성됩니다.
-- **Unit of Work 플러그인** — Identity Map, dirty checking, cascade, 배치 flush, lazy proxy, 비관적 락(pessimistic lock) 을 `em.extend(bufferPlugin())` 한 줄로 활성화. 동일 PK 반복 조회는 single-level 캐시가 round-trip 을 건너뜁니다.
-- **계층형 멀티 테넌시** — Docker OverlayFS 에서 영감을 받은 메타데이터 레이어링 + AsyncLocalStorage 컨텍스트 격리. 설계상 cross-tenant leakage 가 발생하지 않도록 만들었습니다.
-- **세 가지 DB, 하나의 API** — MySQL(MariaDB 특화 최적화 포함) / PostgreSQL / SQLite 가 같은 `EntityManager` 인터페이스를 공유. 쿼리 재작성 없이 드라이버만 교체 가능합니다.
-- **스키마 Diff 마이그레이션** — 실제 DB 상태와 엔티티 메타데이터를 비교해 마이그레이션 코드를 자동 생성. `true / "safe" / "dry-run"` 세 가지 synchronize 모드 지원.
-- **NestJS 1st-party 모듈** — `@InjectRepository`, `@InjectEntityManager`, 다중 DB named connection 을 별도 어댑터 없이 제공합니다.
+별도 codegen 단계를 두지 않고도 이 정도 추론을 잡아낼 수 있는지 시연해 보고 싶었습니다.
 
-## 개발 기간
+## 그 외 갖춘 것들
 
-2026.02 ~ 현재 · 활발히 개발 중 · 최신 릴리스 v0.20.0
+- **Unit of Work** — Identity Map, dirty checking, cascade, 배치 flush, lazy proxy, 비관적 락. `em.extend(bufferPlugin())` 한 줄로 활성화됩니다.
+- **스키마 Diff 마이그레이션** — 라이브 DB 상태와 엔티티 정의를 비교해 마이그레이션 SQL 을 자동 생성합니다. `safe`, `dry-run` 모드를 별도로 제공합니다.
+- **드라이버 추상화** — 세 가지 DB 가 동일한 `EntityManager` 인터페이스를 공유합니다. 드라이버를 바꿔도 쿼리 코드를 다시 쓰지 않습니다. MariaDB 특화 최적화도 별도로 들어가 있습니다.
+
+GitHub Actions 로 CI 를 돌리고 있고 문서는 GitHub Pages 로 따로 운영 중입니다.

@@ -17,7 +17,7 @@ const ITEMS: ProjectItem[] = [
   {
     key: 'stingerloom-orm',
     title: 'StingerLoom ORM',
-    subtitle: '데코레이터 기반 TypeScript ORM',
+    subtitle: 'PostgreSQL · MySQL · SQLite ORM',
     period: '2026.02 — 현재',
     image:
       'https://opengraph.githubassets.com/d2910518656c9536ff38515a591b3d3e596cde6757ea673195cab001709b1a70/biud436/stingerloom-orm',
