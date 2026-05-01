@@ -27,6 +27,11 @@
 const year = new Date().getFullYear()
 const links = [
   { label: 'GitHub', href: 'https://github.com/biud436/', icon: 'fa6-brands:github' },
+  {
+    label: 'LinkedIn',
+    href: 'https://www.linkedin.com/in/jinseok-eo/',
+    icon: 'fa6-brands:linkedin-in',
+  },
   { label: 'Blog', href: 'https://blog.naver.com/biud436', icon: 'lucide:rss' },
   { label: 'Email', href: 'mailto:biud436@gmail.com', icon: 'lucide:mail' },
 ]

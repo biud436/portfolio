@@ -147,7 +147,7 @@ const ITEMS: ProjectItem[] = [
     key: 'initial2D',
     title: 'Initial2D',
     subtitle: '자체 개발 C++ 게임 엔진',
-    period: '2019-2020',
+    period: '2019.01 — 2020.12',
     image: '/assets/img/portfolio/pp6.png',
     links: [{ label: 'GitHub', href: 'https://github.com/biud436/Initial2D' }],
   },

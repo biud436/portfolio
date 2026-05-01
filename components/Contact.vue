@@ -68,6 +68,13 @@ const links = [
     external: true,
   },
   {
+    label: 'LinkedIn',
+    value: 'linkedin.com/in/jinseok-eo',
+    href: 'https://www.linkedin.com/in/jinseok-eo/',
+    icon: 'fa6-brands:linkedin-in',
+    external: true,
+  },
+  {
     label: 'Blog',
     value: 'blog.naver.com/biud436',
     href: 'https://blog.naver.com/biud436',
