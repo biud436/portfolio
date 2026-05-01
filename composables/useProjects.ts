@@ -1,16 +1,16 @@
 export interface ProjectLink {
-  label: string
-  href: string
-  icon?: string
+  label: string;
+  href: string;
+  icon?: string;
 }
 
 export interface ProjectItem {
-  key: string
-  title: string
-  subtitle: string
-  period: string
-  image: string
-  links: ProjectLink[]
+  key: string;
+  title: string;
+  subtitle: string;
+  period: string;
+  image: string;
+  links: ProjectLink[];
 }
 
 const ITEMS: ProjectItem[] = [
@@ -45,7 +45,9 @@ const ITEMS: ProjectItem[] = [
     period: '2023',
     image:
       'https://github.com/biud436/blog-front/assets/13586185/40629880-5785-4733-a95f-24f9f2b23641',
-    links: [{ label: 'GitHub', href: 'https://github.com/biud436/stingerloom' }],
+    links: [
+      { label: 'GitHub', href: 'https://github.com/biud436/stingerloom' },
+    ],
   },
   {
     key: 'blog',
@@ -95,7 +97,9 @@ const ITEMS: ProjectItem[] = [
     subtitle: 'JSP · MVC2 팀 프로젝트',
     period: '2020.10 — 2021.01',
     image: '/assets/img/portfolio/portfolio1.png',
-    links: [{ label: 'GitHub', href: 'https://github.com/biud436/project_one' }],
+    links: [
+      { label: 'GitHub', href: 'https://github.com/biud436/project_one' },
+    ],
   },
   {
     key: 'initialEditor',
@@ -143,22 +147,22 @@ const ITEMS: ProjectItem[] = [
     key: 'initial2D',
     title: 'Initial2D',
     subtitle: '자체 개발 C++ 게임 엔진',
-    period: '2015',
+    period: '2019-2020',
     image: '/assets/img/portfolio/pp6.png',
     links: [{ label: 'GitHub', href: 'https://github.com/biud436/Initial2D' }],
   },
-]
+];
 
-const fetchProjectContents = () => queryCollection('projects').all()
+const fetchProjectContents = () => queryCollection('projects').all();
 
 export async function useProjectsAsync() {
   const { data: contents } = await useAsyncData(
     'projects-all',
     fetchProjectContents,
-  )
-  return { items: ITEMS, contents }
+  );
+  return { items: ITEMS, contents };
 }
 
 export function useProjectsItems() {
-  return ITEMS
+  return ITEMS;
 }
