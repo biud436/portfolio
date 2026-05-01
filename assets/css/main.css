@@ -65,6 +65,22 @@
   }
 
   .prose-invert-tight {
-    @apply prose prose-invert max-w-none prose-p:my-3 prose-li:my-1 prose-headings:font-semibold prose-a:text-indigo-300 hover:prose-a:text-indigo-200;
+    @apply prose prose-invert max-w-none prose-p:my-3 prose-li:my-1 prose-headings:font-semibold prose-a:text-indigo-300 hover:prose-a:text-indigo-200 prose-code:text-indigo-200 prose-code:before:content-none prose-code:after:content-none;
+  }
+
+  .prose-invert-tight :where(code):not(pre code) {
+    @apply rounded-md border border-zinc-800 bg-zinc-900/80 px-1.5 py-0.5 text-[0.9em] font-medium;
+  }
+
+  .prose-invert-tight pre {
+    @apply overflow-x-auto rounded-xl border border-zinc-800 bg-zinc-950 p-5 text-sm leading-relaxed;
+  }
+
+  .prose-invert-tight pre code {
+    @apply bg-transparent p-0 text-zinc-100;
+  }
+
+  .prose-invert-tight pre .line {
+    @apply block;
   }
 }

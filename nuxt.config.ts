@@ -63,6 +63,37 @@ export default defineNuxtConfig({
     preset: 'static',
   },
 
+  content: {
+    build: {
+      markdown: {
+        highlight: {
+          theme: 'github-dark-dimmed',
+          langs: [
+            'js',
+            'jsx',
+            'json',
+            'ts',
+            'tsx',
+            'vue',
+            'css',
+            'scss',
+            'html',
+            'bash',
+            'sh',
+            'md',
+            'mdc',
+            'yaml',
+            'sql',
+            'java',
+            'kotlin',
+            'cpp',
+            'lua',
+          ],
+        },
+      },
+    },
+  },
+
   typescript: {
     strict: true,
   },
