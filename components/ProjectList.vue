@@ -131,9 +131,10 @@ watch(current, (key) => {
     display.value = null
     return
   }
+  const lookup = key.toLowerCase()
   const content =
     contents.value?.find(
-      (c) => String(c.path).split('/').pop() === key,
+      (c) => String(c.path).split('/').pop()?.toLowerCase() === lookup,
     ) ?? null
   display.value = { item, content }
 })
