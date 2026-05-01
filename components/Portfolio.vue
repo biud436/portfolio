@@ -5,8 +5,7 @@
         <span class="eyebrow">Projects</span>
         <h2 class="section-title">개인 프로젝트</h2>
         <p class="section-subtitle">
-          최신순. 회사 일이 아닌, 개인 시간에 만들어 본 것들 — 아마추어 시절의
-          습작부터 최근 작업까지.
+          최신순. 회사 업무가 아닌, 개인 시간에 만들어 본 작업들입니다.
         </p>
       </div>
 
