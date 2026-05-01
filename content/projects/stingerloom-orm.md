@@ -28,5 +28,3 @@ em.repository(User)
 - **Unit of Work** — Identity Map, dirty checking, cascade, 배치 flush, lazy proxy, 비관적 락. `em.extend(bufferPlugin())` 한 줄로 활성화됩니다.
 - **스키마 Diff 마이그레이션** — 라이브 DB 상태와 엔티티 정의를 비교해 마이그레이션 SQL 을 자동 생성합니다. `safe`, `dry-run` 모드를 별도로 제공합니다.
 - **드라이버 추상화** — 세 가지 DB 가 동일한 `EntityManager` 인터페이스를 공유합니다. 드라이버를 바꿔도 쿼리 코드를 다시 쓰지 않습니다. MariaDB 특화 최적화도 별도로 들어가 있습니다.
-
-GitHub Actions 로 CI 를 돌리고 있고 문서는 GitHub Pages 로 따로 운영 중입니다.
