@@ -42,7 +42,7 @@ const ITEMS: ProjectItem[] = [
     key: 'customServer',
     title: 'StingerLoom',
     subtitle: '백엔드 프레임워크',
-    period: '2023',
+    period: '2023.07 — 현재',
     image:
       'https://github.com/biud436/blog-front/assets/13586185/40629880-5785-4733-a95f-24f9f2b23641',
     links: [
@@ -50,22 +50,21 @@ const ITEMS: ProjectItem[] = [
     ],
   },
   {
-    key: 'blog',
-    title: '개인 블로그',
-    subtitle: '풀스택 웹사이트',
-    period: '2023',
+    key: 'weatherReact',
+    title: '날씨 (리액트)',
+    subtitle: 'SPA · 인터랙티브 차트',
+    period: '2022.05',
     image:
-      'https://github.com/biud436/blog-api-server/assets/13586185/6279ed5b-9eec-4d59-bba6-d0961b107ebb',
+      'https://user-images.githubusercontent.com/13586185/169680914-72cf246c-e00c-4c33-8c31-00228a08313a.gif',
     links: [
-      { label: '서버', href: 'https://github.com/biud436/blog-api-server' },
-      { label: '프론트', href: 'https://github.com/biud436/blog-front' },
+      { label: 'GitHub', href: 'https://github.com/biud436/weather-react' },
     ],
   },
   {
     key: 'rgssCompiler',
     title: 'RGSS 스크립트 컴파일러',
     subtitle: 'VSCode 확장',
-    period: '2022',
+    period: '2022.03',
     image:
       'https://biud436.gallerycdn.vsassets.io/extensions/biud436/rgss-script-compiler/0.0.14/1648001730750/Microsoft.VisualStudio.Services.Icons.Default',
     links: [
@@ -81,14 +80,15 @@ const ITEMS: ProjectItem[] = [
     ],
   },
   {
-    key: 'weatherReact',
-    title: '날씨 (리액트)',
-    subtitle: 'SPA · 인터랙티브 차트',
-    period: '2022.05',
+    key: 'blog',
+    title: '개인 블로그',
+    subtitle: '풀스택 웹사이트',
+    period: '2022.03 — 현재',
     image:
-      'https://user-images.githubusercontent.com/13586185/169680914-72cf246c-e00c-4c33-8c31-00228a08313a.gif',
+      'https://github.com/biud436/blog-api-server/assets/13586185/6279ed5b-9eec-4d59-bba6-d0961b107ebb',
     links: [
-      { label: 'GitHub', href: 'https://github.com/biud436/weather-react' },
+      { label: '서버', href: 'https://github.com/biud436/blog-api-server' },
+      { label: '프론트', href: 'https://github.com/biud436/blog-front' },
     ],
   },
   {
@@ -105,7 +105,7 @@ const ITEMS: ProjectItem[] = [
     key: 'initialEditor',
     title: 'Initial Editor',
     subtitle: '웹 기반 타일맵 에디터',
-    period: '2020.10',
+    period: '2020.10 — 2020.12',
     image:
       'https://github.com/biud436/Initial2D/raw/master/docs/img/new_editor.png',
     links: [
