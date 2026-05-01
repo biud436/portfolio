@@ -10,7 +10,7 @@
         leave-from="opacity-100"
         leave-to="opacity-0"
       >
-        <div class="fixed inset-0 bg-zinc-950/80 backdrop-blur" />
+        <div class="fixed inset-0 bg-zinc-950/80 backdrop-blur" aria-hidden="true" />
       </TransitionChild>
 
       <div class="fixed inset-0 overflow-y-auto">
@@ -25,7 +25,6 @@
             leave-to="opacity-0 scale-95"
           >
             <DialogPanel
-              v-if="active"
               class="surface relative my-8 w-full max-w-3xl overflow-hidden"
             >
               <button
@@ -37,60 +36,66 @@
                 <Icon name="lucide:x" size="1.1em" />
               </button>
 
-              <div class="relative aspect-[16/7] w-full overflow-hidden bg-zinc-950">
-                <img
-                  :src="active.item.image"
-                  :alt="active.item.title"
-                  class="size-full object-cover"
-                />
+              <template v-if="display">
                 <div
-                  class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/40 to-transparent"
-                ></div>
-                <div class="absolute bottom-0 left-0 right-0 px-6 pb-6 sm:px-10">
-                  <DialogTitle
-                    class="text-2xl font-bold text-white sm:text-3xl"
-                    style="font-family: 'Roboto Slab', serif"
-                  >
-                    {{ active.item.title }}
-                  </DialogTitle>
-                  <p
-                    class="mt-1 text-sm font-medium uppercase tracking-wider text-indigo-300"
-                  >
-                    {{ active.item.subtitle }}
-                  </p>
-                </div>
-              </div>
-
-              <div class="px-6 py-7 sm:px-10 sm:py-8">
-                <ContentRenderer
-                  v-if="active.content"
-                  :value="active.content"
-                  class="prose-invert-tight"
-                />
-                <p v-else class="text-zinc-500">
-                  내용을 불러오지 못했습니다.
-                </p>
-
-                <div
-                  v-if="active.item.links.length"
-                  class="mt-8 flex flex-wrap items-center gap-3 border-t border-zinc-800 pt-6"
+                  class="relative aspect-[16/7] w-full overflow-hidden bg-zinc-950"
                 >
-                  <a
-                    v-for="link in active.item.links"
-                    :key="link.href"
-                    :href="link.href"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="btn-ghost"
+                  <img
+                    :src="display.item.image"
+                    :alt="display.item.title"
+                    class="size-full object-cover"
+                  />
+                  <div
+                    class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/40 to-transparent"
+                  ></div>
+                  <div
+                    class="absolute bottom-0 left-0 right-0 px-6 pb-6 sm:px-10"
                   >
-                    <Icon
-                      :name="link.icon ?? 'fa6-brands:github'"
-                      size="1em"
-                    />
-                    {{ link.label }}
-                  </a>
+                    <DialogTitle
+                      class="text-2xl font-bold text-white sm:text-3xl"
+                      style="font-family: 'Roboto Slab', serif"
+                    >
+                      {{ display.item.title }}
+                    </DialogTitle>
+                    <p
+                      class="mt-1 text-sm font-medium uppercase tracking-wider text-indigo-300"
+                    >
+                      {{ display.item.subtitle }}
+                    </p>
+                  </div>
                 </div>
-              </div>
+
+                <div class="px-6 py-7 sm:px-10 sm:py-8">
+                  <ContentRenderer
+                    v-if="display.content"
+                    :value="display.content"
+                    class="prose-invert-tight"
+                  />
+                  <p v-else class="text-zinc-500">
+                    내용을 불러오지 못했습니다. (key: {{ display.item.key }})
+                  </p>
+
+                  <div
+                    v-if="display.item.links.length"
+                    class="mt-8 flex flex-wrap items-center gap-3 border-t border-zinc-800 pt-6"
+                  >
+                    <a
+                      v-for="link in display.item.links"
+                      :key="link.href"
+                      :href="link.href"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="btn-ghost"
+                    >
+                      <Icon
+                        :name="link.icon ?? 'fa6-brands:github'"
+                        size="1em"
+                      />
+                      {{ link.label }}
+                    </a>
+                  </div>
+                </div>
+              </template>
             </DialogPanel>
           </TransitionChild>
         </div>
@@ -108,18 +113,28 @@ import {
   TransitionRoot,
 } from '@headlessui/vue'
 
+interface DisplayedProject {
+  item: ProjectItem
+  content: unknown | null
+}
+
 const { current, close } = useModal()
-const { items, contents } = useProjects()
+const { items, contents } = await useProjectsAsync()
 const isVisible = computed(() => current.value !== null)
 
-const active = computed(() => {
-  if (!current.value) return null
-  const item = items.find((i) => i.key === current.value)
-  if (!item) return null
+const display = ref<DisplayedProject | null>(null)
+
+watch(current, (key) => {
+  if (!key) return
+  const item = items.find((i) => i.key === key)
+  if (!item) {
+    display.value = null
+    return
+  }
   const content =
     contents.value?.find(
-      (c) => String(c.path).split('/').pop() === current.value,
+      (c) => String(c.path).split('/').pop() === key,
     ) ?? null
-  return { item, content }
+  display.value = { item, content }
 })
 </script>

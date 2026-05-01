@@ -8,6 +8,7 @@ export interface ProjectItem {
   key: string
   title: string
   subtitle: string
+  period: string
   image: string
   links: ProjectLink[]
 }
@@ -16,15 +17,17 @@ const ITEMS: ProjectItem[] = [
   {
     key: 'customServer',
     title: 'StingerLoom',
-    subtitle: '프레임워크',
+    subtitle: '백엔드 프레임워크',
+    period: '2023',
     image:
       'https://github.com/biud436/blog-front/assets/13586185/40629880-5785-4733-a95f-24f9f2b23641',
     links: [{ label: 'GitHub', href: 'https://github.com/biud436/stingerloom' }],
   },
   {
     key: 'blog',
-    title: '블로그',
-    subtitle: '웹사이트',
+    title: '개인 블로그',
+    subtitle: '풀스택 웹사이트',
+    period: '2023',
     image:
       'https://github.com/biud436/blog-api-server/assets/13586185/6279ed5b-9eec-4d59-bba6-d0961b107ebb',
     links: [
@@ -33,19 +36,10 @@ const ITEMS: ProjectItem[] = [
     ],
   },
   {
-    key: 'weatherReact',
-    title: '날씨 (리액트)',
-    subtitle: '날씨',
-    image:
-      'https://user-images.githubusercontent.com/13586185/169680914-72cf246c-e00c-4c33-8c31-00228a08313a.gif',
-    links: [
-      { label: 'GitHub', href: 'https://github.com/biud436/weather-react' },
-    ],
-  },
-  {
     key: 'rgssCompiler',
     title: 'RGSS 스크립트 컴파일러',
     subtitle: 'VSCode 확장',
+    period: '2022',
     image:
       'https://biud436.gallerycdn.vsassets.io/extensions/biud436/rgss-script-compiler/0.0.14/1648001730750/Microsoft.VisualStudio.Services.Icons.Default',
     links: [
@@ -61,16 +55,40 @@ const ITEMS: ProjectItem[] = [
     ],
   },
   {
+    key: 'weatherReact',
+    title: '날씨 (리액트)',
+    subtitle: 'SPA · 인터랙티브 차트',
+    period: '2022.05',
+    image:
+      'https://user-images.githubusercontent.com/13586185/169680914-72cf246c-e00c-4c33-8c31-00228a08313a.gif',
+    links: [
+      { label: 'GitHub', href: 'https://github.com/biud436/weather-react' },
+    ],
+  },
+  {
     key: 'shoppingMall',
     title: '쇼핑몰 프로젝트',
-    subtitle: '쇼핑몰',
+    subtitle: 'JSP · MVC2 팀 프로젝트',
+    period: '2020.10 — 2021.01',
     image: '/assets/img/portfolio/portfolio1.png',
     links: [{ label: 'GitHub', href: 'https://github.com/biud436/project_one' }],
   },
   {
+    key: 'initialEditor',
+    title: 'Initial Editor',
+    subtitle: '웹 기반 타일맵 에디터',
+    period: '2020.10',
+    image:
+      'https://github.com/biud436/Initial2D/raw/master/docs/img/new_editor.png',
+    links: [
+      { label: 'GitHub', href: 'https://github.com/biud436/InitialEditor' },
+    ],
+  },
+  {
     key: 'weather',
     title: '주간 날씨',
-    subtitle: '날씨',
+    subtitle: 'Canvas · Open Weather',
+    period: '2020.09',
     image: '/assets/img/portfolio/weather.png',
     links: [
       {
@@ -82,19 +100,10 @@ const ITEMS: ProjectItem[] = [
     ],
   },
   {
-    key: 'initialEditor',
-    title: '맵 에디터',
-    subtitle: 'Initial Editor',
-    image:
-      'https://github.com/biud436/Initial2D/raw/master/docs/img/new_editor.png',
-    links: [
-      { label: 'GitHub', href: 'https://github.com/biud436/InitialEditor' },
-    ],
-  },
-  {
     key: 'androidAppBuilder',
     title: '안드로이드 APK 빌더',
-    subtitle: '빌더',
+    subtitle: 'Cordova · Android SDK',
+    period: '2019.11 — 2020.02',
     image:
       'https://github.com/biud436/MV-App-Builder/raw/master/screenshot.png',
     links: [
@@ -109,17 +118,23 @@ const ITEMS: ProjectItem[] = [
   {
     key: 'initial2D',
     title: 'Initial2D',
-    subtitle: '게임 엔진',
+    subtitle: '자체 개발 C++ 게임 엔진',
+    period: '아마추어 시절',
     image: '/assets/img/portfolio/pp6.png',
     links: [{ label: 'GitHub', href: 'https://github.com/biud436/Initial2D' }],
   },
 ]
 
-function fetchProjectContents() {
-  return queryCollection('projects').all()
+const fetchProjectContents = () => queryCollection('projects').all()
+
+export async function useProjectsAsync() {
+  const { data: contents } = await useAsyncData(
+    'projects-all',
+    fetchProjectContents,
+  )
+  return { items: ITEMS, contents }
 }
 
-export function useProjects() {
-  const { data: contents } = useAsyncData('projects-all', fetchProjectContents)
-  return { items: ITEMS, contents }
+export function useProjectsItems() {
+  return ITEMS
 }
