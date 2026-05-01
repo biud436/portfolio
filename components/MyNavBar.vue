@@ -1,40 +1,62 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-dark col-12" id="mainNav">
+  <nav
+    id="mainNav"
+    class="navbar navbar-expand-lg navbar-dark col-12"
+    :class="{ 'navbar-shrink': shrunk }"
+  >
     <div class="container">
-      <a class="navbar-brand js-scroll-trigger" href="#page-top"></a>
+      <a class="navbar-brand js-scroll-trigger" href="#page-top" @click="onClick"></a>
       <button
         class="navbar-toggler navbar-toggler-right"
         type="button"
-        data-toggle="collapse"
-        data-target="#navbarResponsive"
         aria-controls="navbarResponsive"
-        aria-expanded="false"
+        :aria-expanded="open"
         aria-label="Toggle navigation"
+        @click="open = !open"
       >
         Menu
-        <i class="fas fa-bars ml-1"></i>
+        <Icon name="fa6-solid:bars" class="ml-1" />
       </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
+      <div
+        id="navbarResponsive"
+        class="navbar-collapse"
+        :class="{ show: open }"
+      >
         <ul class="navbar-nav text-uppercase ml-auto">
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#portfolio"
+            <a
+              class="nav-link js-scroll-trigger"
+              href="#portfolio"
+              @click="onClick"
               >Portfolio</a
             >
           </li>
-          <!-- <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">Profile</a></li> -->
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#contact">Profile</a>
+            <a
+              class="nav-link js-scroll-trigger"
+              href="#contact"
+              @click="onClick"
+              >Profile</a
+            >
           </li>
         </ul>
       </div>
     </div>
   </nav>
 </template>
-<script lang="ts">
-import Vue from 'vue';
-export default Vue.extend({});
+
+<script setup lang="ts">
+const { shrunk } = useNavbarShrink(100)
+const { handleClick } = useSmoothScroll()
+const open = ref(false)
+
+function onClick(e: MouseEvent) {
+  handleClick(e)
+  open.value = false
+}
 </script>
-<style lang="css">
+
+<style>
 #mainNav {
   background: #1f1f1f;
 }

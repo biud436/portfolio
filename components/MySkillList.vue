@@ -6,21 +6,14 @@
         <h3 class="section-subheading text-muted"></h3>
       </div>
       <div class="row">
-        <nuxt-content :document="mySkillList" />
+        <ContentRenderer v-if="skill" :value="skill" />
       </div>
     </div>
   </div>
 </template>
-<script>
-export default {
-  data() {
-    return {
-      mySkillList: {},
-    };
-  },
-  async mounted() {
-    this.mySkillList = await this.$content('skills', 'skillList').fetch();
-  },
-};
+
+<script setup lang="ts">
+const { data: skill } = await useAsyncData('skill-skillList', () =>
+  queryCollection('skills').path('/skillList').first(),
+)
 </script>
-<style lang="scss"></style>

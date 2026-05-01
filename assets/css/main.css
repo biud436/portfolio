@@ -1,0 +1,201 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import './agency-theme.css';
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #222 !important;
+    color: #fff;
+    font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+      Roboto, 'Helvetica Neue', Arial, sans-serif;
+    overflow-x: hidden;
+  }
+
+  nav,
+  footer {
+    color: #d3d3d3;
+  }
+
+  p {
+    line-height: 1.75;
+  }
+}
+
+@layer components {
+  /* Bootstrap-compat: layout */
+  .container {
+    @apply mx-auto w-full px-4;
+    max-width: 1140px;
+  }
+
+  .row {
+    @apply -mx-4 flex flex-wrap;
+  }
+
+  .row.no-gutters {
+    @apply mx-0;
+  }
+
+  .row.no-gutters > [class*='col-'] {
+    @apply px-0;
+  }
+
+  [class*='col-'] {
+    @apply w-full px-4;
+  }
+
+  .col-12 { @apply w-full; }
+  .col-md-6 { @apply md:w-1/2; }
+  .col-md-12 { @apply md:w-full; }
+  .col-lg-4 { @apply lg:w-1/3; }
+  .col-lg-8 { @apply lg:w-2/3; }
+  .col-sm { @apply flex-1 sm:flex-1; }
+
+  /* Bootstrap-compat: buttons */
+  .btn {
+    @apply inline-block cursor-pointer rounded border border-transparent px-4 py-2 text-center font-normal text-white transition;
+  }
+
+  .btn-primary {
+    background-color: #fed136;
+    border-color: #fed136;
+    color: #212529;
+  }
+  .btn-primary:hover,
+  .btn-primary:focus {
+    background-color: #fec810;
+    border-color: #fec810;
+    color: #212529;
+  }
+
+  .btn-dark {
+    background-color: #1a252f;
+    border-color: #1a252f;
+    color: #fff;
+  }
+  .btn-dark:hover {
+    background-color: #11171c;
+  }
+
+  /* Bootstrap-compat: cards */
+  .card {
+    @apply relative flex flex-col rounded border border-gray-200 bg-white text-black;
+  }
+  .card-body {
+    @apply flex-1 p-5;
+  }
+  .card-img-top {
+    @apply w-full rounded-t object-cover;
+  }
+  .card-text {
+    @apply m-0;
+  }
+
+  /* Bootstrap-compat: forms */
+  .form-group {
+    @apply mb-4;
+  }
+  .form-control {
+    @apply block w-full rounded border border-gray-300 px-3 py-2 text-base text-gray-900;
+  }
+  .help-block {
+    @apply mt-2 text-sm;
+  }
+
+  /* Bootstrap-compat: navbar */
+  .navbar {
+    @apply relative flex flex-wrap items-center justify-between px-4 py-2;
+  }
+  .navbar-expand-lg {
+    @apply lg:flex-nowrap lg:justify-start;
+  }
+  .navbar-dark .navbar-brand,
+  .navbar-dark .nav-link {
+    @apply text-white;
+  }
+  .navbar-toggler {
+    @apply rounded border border-transparent px-3 py-1 text-white lg:hidden;
+  }
+  .navbar-collapse {
+    @apply hidden basis-full grow flex-col items-center lg:flex lg:basis-auto lg:flex-row;
+  }
+  .navbar-collapse.show {
+    @apply flex;
+  }
+  .navbar-nav {
+    @apply flex flex-col list-none lg:flex-row;
+  }
+  .nav-item {
+    @apply lg:mx-2;
+  }
+  .nav-link {
+    @apply block px-4 py-2;
+  }
+
+  /* Bootstrap-compat: utilities (only those without direct Tailwind equivalents) */
+  .text-uppercase { @apply uppercase; }
+  .text-muted { @apply text-gray-400; }
+  .text-light { @apply text-gray-200; }
+  .text-lg-left { @apply lg:text-left; }
+  .text-lg-right { @apply lg:text-right; }
+
+  .img-fluid { @apply h-auto max-w-full; }
+  .img-thumbnail { @apply rounded border bg-white p-1; }
+  .rounded-circle { @apply rounded-full; }
+  .fixed-top { @apply fixed inset-x-0 top-0 z-50; }
+
+  .py-5 { @apply py-12; }
+  .my-lg-0 { @apply lg:my-0; }
+  .mb-5 { @apply mb-12; }
+  .mb-md-0 { @apply md:mb-0; }
+
+  .d-block { @apply block; }
+  .d-flex { @apply flex; }
+  .d-none { @apply hidden; }
+  .d-inline-block { @apply inline-block; }
+  .align-items-center { @apply items-center; }
+  .align-items-stretch { @apply items-stretch; }
+  .justify-content-center { @apply justify-center; }
+
+  .bg-light { @apply bg-gray-100 text-black; }
+  .font-weight-bold { @apply font-bold; }
+
+  /* Section helpers */
+  .section-heading {
+    @apply mt-0 mb-4 font-bold;
+    font-size: 2.5rem;
+  }
+
+  .section-subheading {
+    @apply italic;
+    font-family: 'Droid Serif', serif;
+    font-size: 1rem;
+    margin-bottom: 4rem;
+  }
+
+  /* Modal compat */
+  .modal {
+    @apply fixed inset-0 z-50 hidden overflow-y-auto;
+  }
+  .modal.show {
+    @apply block;
+  }
+  .modal-dialog {
+    @apply relative mx-auto my-8 max-w-3xl;
+  }
+  .modal-content {
+    @apply rounded bg-white p-8 text-black shadow-lg;
+  }
+
+  /* Skill component */
+  .card-text-non-interactive,
+  .card-description-non-interactive {
+    color: #d3d3d3;
+  }
+}

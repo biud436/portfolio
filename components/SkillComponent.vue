@@ -5,40 +5,30 @@
         class="card-img-top"
         width="256"
         height="256"
-        :src="src"
-        alt="Card image cap"
+        :src="imgsrc"
+        alt="Skill icon"
       />
       <div class="card-body">
-        <p class="card-text text-center">{{ getFullText }}</p>
+        <p class="card-text text-center">{{ text }}</p>
       </div>
     </div>
   </div>
 </template>
-<script lang="ts">
-import Vue from 'vue';
 
-export default Vue.extend({
-  props: ['imgsrc', 'normal', 'status'],
-  data() {
-    const { normal, imgsrc } = this;
+<script setup lang="ts">
+const props = defineProps<{
+  imgsrc: string
+  normal: string
+  status: string
+}>()
 
-    return {
-      src: imgsrc,
-      text: normal,
-    };
-  },
-  methods: {
-    hover(): void {
-      this.text = this.status as any;
-    },
-    leave(): void {
-      this.text = this.normal as any;
-    },
-  },
-  computed: {
-    getFullText(): string {
-      return this.text;
-    },
-  },
-});
+const text = ref(props.normal)
+
+function hover() {
+  text.value = props.status
+}
+
+function leave() {
+  text.value = props.normal
+}
 </script>

@@ -5,14 +5,14 @@
         <div class="col-lg-4 text-lg-left">Copyright © 어진석 2022</div>
         <div class="col-lg-4 my-3 my-lg-0">
           <a class="btn btn-dark btn-social mx-2" href="#!"
-            ><i class="fab fa-twitter"></i
-          ></a>
+            ><Icon name="fa6-brands:twitter"
+          /></a>
           <a class="btn btn-dark btn-social mx-2" href="#!"
-            ><i class="fab fa-facebook-f"></i
-          ></a>
+            ><Icon name="fa6-brands:facebook-f"
+          /></a>
           <a class="btn btn-dark btn-social mx-2" href="#!"
-            ><i class="fab fa-linkedin-in"></i
-          ></a>
+            ><Icon name="fa6-brands:linkedin-in"
+          /></a>
         </div>
         <div class="col-lg-4 text-lg-right">
           <a class="mr-3" href="#!">Privacy Policy</a>
@@ -22,14 +22,5 @@
     </div>
   </footer>
 </template>
-<script lang="ts">
-import Vue from 'vue';
 
-export default Vue.extend({
-  data() {
-    return {};
-  },
-  mounted() {},
-});
-</script>
-<style lang="scss"></style>
+<script setup lang="ts"></script>

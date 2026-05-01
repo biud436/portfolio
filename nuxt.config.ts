@@ -1,71 +1,67 @@
-export default {
-  // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
+export default defineNuxtConfig({
+  compatibilityDate: '2025-01-01',
   ssr: false,
+  srcDir: '.',
+  devtools: { enabled: true },
 
-  // Global page headers: https://go.nuxtjs.dev/config-head
-  head: {
-    title: '어진석의 포트폴리오',
-    htmlAttrs: {
-      lang: 'ko',
-    },
-    meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
-      { name: 'format-detection', content: 'telephone=no' },
-      // description
-      {
-        hid: 'description',
-        name: 'description',
-        content:
-          '어떤 프로젝트를 진행했는지 알려주는 저의 포트폴리오 사이트입니다.',
-      },
-    ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
-  },
-
-  // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [],
-
-  // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
-
-  // Auto import components: https://go.nuxtjs.dev/config-components
-  components: true,
-
-  // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
-  buildModules: [
-    // https://go.nuxtjs.dev/typescript
-    '@nuxt/typescript-build',
-  ],
-
-  // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
-    // https://go.nuxtjs.dev/bootstrap
-    'bootstrap-vue/nuxt',
-    // https://go.nuxtjs.dev/axios
-    '@nuxtjs/axios',
     '@nuxt/content',
+    '@nuxt/icon',
+    '@nuxtjs/tailwindcss',
+    '@nuxtjs/google-fonts',
+    '@pinia/nuxt',
   ],
 
-  // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {},
+  css: ['~/assets/css/main.css'],
 
-  // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {
-    babel: {
-      compact: true,
-    },
-    extend(config: any, ctx: any) {
-      config.module.rules.push({
-        enforce: 'pre',
-        test: /\.md$/,
-        loader: 'raw-loader',
-        exclude: /(node_modules)/,
-      });
+  app: {
+    head: {
+      htmlAttrs: { lang: 'ko' },
+      title: '어진석의 포트폴리오',
+      meta: [
+        { charset: 'utf-8' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        { name: 'format-detection', content: 'telephone=no' },
+        {
+          hid: 'description',
+          name: 'description',
+          content:
+            '어떤 프로젝트를 진행했는지 알려주는 저의 포트폴리오 사이트입니다.',
+        },
+      ],
+      link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+      script: [
+        {
+          innerHTML:
+            "if (!window.wcs_add) window.wcs_add = {}; window.wcs_add['wa'] = '15960f98fc7584'; if (window.wcs) { window.wcs_do(); }",
+          type: 'text/javascript',
+          tagPosition: 'bodyClose',
+        },
+        {
+          src: '//wcs.naver.net/wcslog.js',
+          type: 'text/javascript',
+          tagPosition: 'bodyClose',
+        },
+      ],
     },
   },
-  devtools: true,
-  // target: 'server',
-  target: 'static',
-};
+
+  googleFonts: {
+    families: {
+      'Noto+Sans+KR': [100, 300, 400, 500, 700],
+      Montserrat: [400, 700],
+      'Droid+Serif': [400, 700],
+      'Roboto+Slab': [100, 300, 400, 700],
+    },
+    display: 'swap',
+    preload: true,
+  },
+
+  nitro: {
+    preset: 'static',
+  },
+
+  typescript: {
+    strict: true,
+  },
+})

@@ -1,6 +1,6 @@
 <template>
   <div id="page-top">
-    <my-nav-bar />
-    <Nuxt />
+    <MyNavBar />
+    <slot />
   </div>
 </template>
