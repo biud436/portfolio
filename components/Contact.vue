@@ -74,12 +74,5 @@ const links = [
     icon: 'fa6-brands:linkedin-in',
     external: true,
   },
-  {
-    label: 'Email',
-    value: 'biud436@gmail.com',
-    href: 'mailto:biud436@gmail.com',
-    icon: 'lucide:mail',
-    external: false,
-  },
 ]
 </script>
