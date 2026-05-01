@@ -11,6 +11,7 @@
     "dev": "nuxt dev --port 3000",
     "build": "nuxt build",
     "generate": "nuxt generate",
+    "build:cloudflare": "nuxt generate && rm -rf dist && cp -rL .output/public dist",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },
