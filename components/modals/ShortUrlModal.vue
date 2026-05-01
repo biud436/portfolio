@@ -1,23 +1,26 @@
 <template>
-  <div>
-    <h2 class="text-uppercase mb-2 text-2xl font-bold">Short URL</h2>
-    <p class="item-intro text-muted">짧은 주소 변환 서비스입니다.</p>
+  <article>
+    <p class="eyebrow">Short URL</p>
+    <h2 class="section-title !text-2xl sm:!text-3xl">짧은 주소 변환 서비스</h2>
+    <p class="mt-2 text-zinc-400">Node.js + Express + GitHub Pages 조합.</p>
+
     <img
-      class="img-fluid d-block mx-auto"
+      class="mt-6 w-full rounded-xl border border-zinc-800 object-cover"
       src="/assets/img/portfolio/shorturl.png"
-      alt=""
+      alt="Short URL 스크린샷"
     />
-    <p>
-      짧은 주소 변환 서비스는 Node.js Express와 깃허브 페이지를 이용하였습니다.
+
+    <div class="mt-6 space-y-4 text-zinc-300">
+      <p>
+        DB 에 원본 주소와 MD5 해시 변환 주소를 저장하고, 접속 시 DB 를 확인하여
+        리다이렉션하는 서비스입니다.
+      </p>
+    </div>
+
+    <p class="mt-6 text-xs uppercase tracking-wider text-zinc-500">
+      2021.01.13 — 2021.01.14
     </p>
-    <p>
-      DB에 원본 주소와 MD5로 변환된 주소가 저장되며 접속 시 DB를 확인하여
-      리다이렉션하는 서비스입니다.
-    </p>
-    <ul class="list-inline">
-      <li>Date: 2021.01.13 ~ 2021.01.14</li>
-    </ul>
-  </div>
+  </article>
 </template>
 
 <script setup lang="ts"></script>

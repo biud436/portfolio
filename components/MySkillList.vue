@@ -1,15 +1,16 @@
 <template>
-  <div class="page-section bg-white">
-    <div class="container">
+  <section v-if="skill" class="section">
+    <div class="section-inner">
       <div class="text-center">
-        <h2 class="section-heading text-uppercase">소개</h2>
-        <h3 class="section-subheading text-muted"></h3>
+        <span class="eyebrow">About</span>
+        <h2 class="section-title">자기소개</h2>
       </div>
-      <div class="row">
-        <ContentRenderer v-if="skill" :value="skill" />
-      </div>
+
+      <article class="surface mx-auto mt-12 max-w-3xl px-6 py-8 sm:px-10 sm:py-10">
+        <ContentRenderer :value="skill" class="prose-invert-tight" />
+      </article>
     </div>
-  </div>
+  </section>
 </template>
 
 <script setup lang="ts">

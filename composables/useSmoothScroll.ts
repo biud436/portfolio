@@ -6,8 +6,12 @@ function easeInOutExpo(t: number): number {
 }
 
 export function useSmoothScroll() {
-  function scrollTo(hash: string, offset = 72, duration = 1000) {
+  function scrollTo(hash: string, offset = 64, duration = 800) {
     if (!import.meta.client) return
+    if (!hash || hash === '#') {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+      return
+    }
     const target = document.querySelector(hash) as HTMLElement | null
     if (!target) return
 
@@ -26,12 +30,12 @@ export function useSmoothScroll() {
   }
 
   function handleClick(event: MouseEvent) {
-    const link = (event.target as HTMLElement)?.closest(
-      'a.js-scroll-trigger[href*="#"]',
+    const link = (event.target as HTMLElement | null)?.closest(
+      'a[href^="#"]',
     ) as HTMLAnchorElement | null
     if (!link) return
-    const hash = link.hash
-    if (!hash || hash === '#') return
+    const hash = link.getAttribute('href') ?? ''
+    if (!hash.startsWith('#')) return
     event.preventDefault()
     scrollTo(hash)
   }

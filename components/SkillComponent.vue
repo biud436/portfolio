@@ -1,34 +1,30 @@
 <template>
-  <div class="col-sm">
-    <div class="card" @mouseenter="hover" @mouseleave="leave">
-      <img
-        class="card-img-top"
-        width="256"
-        height="256"
-        :src="imgsrc"
-        alt="Skill icon"
-      />
-      <div class="card-body">
-        <p class="card-text text-center">{{ text }}</p>
-      </div>
-    </div>
-  </div>
+  <li
+    class="surface group flex aspect-square flex-col items-center justify-center gap-3 p-4 transition hover:-translate-y-1 hover:border-indigo-400/60 hover:bg-zinc-900"
+    @mouseenter="hovering = true"
+    @mouseleave="hovering = false"
+    @focusin="hovering = true"
+    @focusout="hovering = false"
+    tabindex="0"
+  >
+    <img
+      :src="imgsrc"
+      :alt="normal"
+      class="size-14 object-contain transition duration-200 group-hover:scale-110"
+      loading="lazy"
+    />
+    <p class="text-center text-sm font-medium text-zinc-200">
+      {{ hovering ? status : normal }}
+    </p>
+  </li>
 </template>
 
 <script setup lang="ts">
-const props = defineProps<{
+defineProps<{
   imgsrc: string
   normal: string
   status: string
 }>()
 
-const text = ref(props.normal)
-
-function hover() {
-  text.value = props.status
-}
-
-function leave() {
-  text.value = props.normal
-}
+const hovering = ref(false)
 </script>

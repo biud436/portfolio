@@ -1,72 +1,58 @@
 <template>
-  <div>
-    <h2 class="text-uppercase mb-2 text-2xl font-bold">쇼핑몰 클론</h2>
-    <p class="item-intro text-muted">
-      이 프로젝트는 쇼핑몰 중개 사이트입니다.
-    </p>
-    <img
-      class="img-fluid d-block mx-auto"
-      src="/assets/img/portfolio/portfolio1.png"
-      alt=""
-    />
-    <p>
-      이 프로젝트는 실제 존재하는 사이트의 클론(Clone) 프로젝트로 시작했고 팀
-      프로젝트입니다.
-    </p>
-    <p>
-      ES6의 import/export 문을 적극 활용하여 여러 명이 협업할 수 있게 모듈화
-      프로그래밍을 주도하였으며
-    </p>
-    <p>
-      자주 사용되는 기능(로그인, 메뉴, 최근 상품, 카테고리)을 컴포넌트 패턴으로
-      정리하여 자바 패키지처럼 간단히 로드하여 사용할 수 있게 하였습니다.
-    </p>
-    <p>
-      거의 모든 데이터는 AJAX를 통해 동적으로 생성되고 있으며, 이 과정에서 JSON
-      데이터를 주고 받습니다.
-    </p>
-    <p>
-      이 때문에 스크롤 시 많은 데이터가 로드되는 것을 사전에 차단하기 위해
-      underscore.js의 쓰로틀링 방지 기능 사용하여 한정된 데이터를 순서대로
-      받아오게 했습니다.
-    </p>
-    <p>
-      소셜 로그인 OAuth API를 이용하여 네이버, 카카오, 페이스북 아이디로 회원
-      가입 또는 로그인을 할 수 있습니다.
-    </p>
-    <p>또한 페이스북 계정으로 댓글을 남길 수도 있습니다.</p>
-    <p>문의를 위한 MVC2 패턴으로 디자인된 게시판이 존재합니다.</p>
-    <p>
-      회원 가입 시, 비밀번호는 SHA-256을 이용하여 단방향 암호화 처리가 되어
-      있으며 상품은 관리자 모드를 통해 업로드가 가능합니다.
-    </p>
-    <p>
-      또한 카카오페이를 통해 테스트 주문을 할 수가 있고 실제로 결제가 되었는지
-      REST API로 검증하는 코드가 들어갔습니다.
-    </p>
-    <p>
-      장바구니 기능은 세션으로 구현되었으며, 비밀번호 찾기는 SMTP 이메일 인증을
-      거칩니다.
-    </p>
-    <p>
-      이때, 이메일에 JWT가 포함된 인증 링크가 발송되며 링크를 누르면 임시
-      비밀번호가 발급되는 방식으로 구현하였습니다.
-    </p>
-    <p>
-      현재 오라클 클라우드 리눅스 우분투 서버에 톰캣과 마리아DB 그리고 https
-      인증서를 설치하여 서버를 24시간 가동하고 있습니다.
-    </p>
+  <article>
+    <p class="eyebrow">쇼핑몰</p>
+    <h2 class="section-title !text-2xl sm:!text-3xl">쇼핑몰 클론</h2>
+    <p class="mt-2 text-zinc-400">실제 사이트 클론으로 시작한 팀 프로젝트.</p>
 
-    <ul class="list-inline">
-      <li>개발 기간 : 2020.10.01 ~ 2021.01.05</li>
-      <li>사용한 기술: HTML5, CSS/SCSS, JavaScript, Java/JSP</li>
-      <li>
-        사용한 라이브러리: jQuery, 아임포트(카카오페이), 네이버 로그인, 카카오
-        로그인, 페이스북 로그인, 페이스북 소셜 댓글 플러그인, EmailJS(메일 인증),
-        Java Mail + JWT(비밀번호 찾기)
-      </li>
-    </ul>
-  </div>
+    <img
+      class="mt-6 w-full rounded-xl border border-zinc-800 object-cover"
+      src="/assets/img/portfolio/portfolio1.png"
+      alt="쇼핑몰 스크린샷"
+    />
+
+    <div class="mt-6 space-y-4 text-zinc-300">
+      <p>
+        ES6 import/export 를 적극 활용하여 협업 가능한 모듈 구조를 주도했고, 자주
+        쓰이는 기능(로그인, 메뉴, 최근 상품, 카테고리)을 컴포넌트 패턴으로
+        정리하여 자바 패키지처럼 간단히 로드하도록 설계했습니다.
+      </p>
+      <p>
+        대부분의 데이터는 AJAX 로 동적 생성되며, 스크롤 시 과도한 요청을 막기
+        위해 underscore.js 의 throttle 을 적용했습니다.
+      </p>
+      <p>
+        소셜 로그인(네이버 / 카카오 / 페이스북) OAuth, 페이스북 댓글, MVC2 패턴
+        문의 게시판, SHA-256 단방향 암호화, 카카오페이 결제 검증, 세션 기반
+        장바구니, JWT + SMTP 인증 비밀번호 찾기 등을 구현했습니다.
+      </p>
+      <p>
+        오라클 클라우드 우분투 서버에 톰캣 / 마리아DB / HTTPS 인증서를 구성해
+        24시간 가동 중입니다.
+      </p>
+    </div>
+
+    <dl
+      class="mt-6 grid gap-4 rounded-xl border border-zinc-800 bg-zinc-950/40 p-5 sm:grid-cols-2"
+    >
+      <div>
+        <dt class="text-xs uppercase tracking-wider text-zinc-500">기간</dt>
+        <dd class="mt-1 text-sm text-zinc-200">2020.10 — 2021.01</dd>
+      </div>
+      <div>
+        <dt class="text-xs uppercase tracking-wider text-zinc-500">기술</dt>
+        <dd class="mt-1 text-sm text-zinc-200">
+          HTML5, CSS/SCSS, JavaScript, Java/JSP
+        </dd>
+      </div>
+      <div class="sm:col-span-2">
+        <dt class="text-xs uppercase tracking-wider text-zinc-500">라이브러리</dt>
+        <dd class="mt-1 text-sm text-zinc-200">
+          jQuery · 아임포트(카카오페이) · 네이버 / 카카오 / 페이스북 로그인 ·
+          페이스북 댓글 · EmailJS · Java Mail + JWT
+        </dd>
+      </div>
+    </dl>
+  </article>
 </template>
 
 <script setup lang="ts"></script>

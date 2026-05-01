@@ -1,27 +1,17 @@
 <template>
-  <section id="portfolio2" class="page-section bg-light">
-    <div class="container">
+  <section v-if="hobby" class="section">
+    <div class="section-inner">
       <div class="text-center">
-        <h2 class="section-heading text-uppercase">기타 프로젝트</h2>
-        <h3 class="section-subheading text-muted"></h3>
+        <span class="eyebrow">Etc</span>
+        <h2 class="section-title">기타 프로젝트</h2>
+        <p class="section-subtitle">크고 작은 사이드 작업들.</p>
       </div>
 
-      <div class="row">
-        <a id="career-dashboard"></a>
-        <div class="col-md-12 mb-4">
-          <div class="row no-gutters">
-            <div class="col-md-12">
-              <div class="card-body">
-                <div
-                  class="card-text-non-interactive card-description-non-interactive active"
-                >
-                  <ContentRenderer v-if="hobby" :value="hobby" />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <article
+        class="surface mx-auto mt-12 max-w-3xl px-6 py-8 sm:px-10 sm:py-10"
+      >
+        <ContentRenderer :value="hobby" class="prose-invert-tight" />
+      </article>
     </div>
   </section>
 </template>

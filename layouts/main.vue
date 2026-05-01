@@ -1,5 +1,5 @@
 <template>
-  <div id="page-top">
+  <div class="min-h-screen">
     <MyNavBar />
     <slot />
   </div>
