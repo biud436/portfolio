@@ -75,13 +75,6 @@ const links = [
     external: true,
   },
   {
-    label: 'Blog',
-    value: 'blog.naver.com/biud436',
-    href: 'https://blog.naver.com/biud436',
-    icon: 'lucide:rss',
-    external: true,
-  },
-  {
     label: 'Email',
     value: 'biud436@gmail.com',
     href: 'mailto:biud436@gmail.com',

@@ -32,7 +32,6 @@ const links = [
     href: 'https://www.linkedin.com/in/jinseok-eo/',
     icon: 'fa6-brands:linkedin-in',
   },
-  { label: 'Blog', href: 'https://blog.naver.com/biud436', icon: 'lucide:rss' },
   { label: 'Email', href: 'mailto:biud436@gmail.com', icon: 'lucide:mail' },
 ]
 </script>
