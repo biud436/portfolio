@@ -1,6 +1,6 @@
 export default defineNuxtConfig({
   compatibilityDate: '2025-01-01',
-  ssr: false,
+  ssr: true,
   srcDir: '.',
   devtools: { enabled: true },
 
@@ -10,6 +10,11 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     '@nuxtjs/google-fonts',
     '@pinia/nuxt',
+  ],
+
+  components: [
+    { path: '~/components', pathPrefix: false },
+    { path: '~/components/modals', pathPrefix: false },
   ],
 
   css: ['~/assets/css/main.css'],

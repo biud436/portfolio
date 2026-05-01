@@ -1,5 +1,3 @@
-}
-
 p {
   line-height: 1.75;
 }
@@ -471,7 +469,7 @@ header.masthead .masthead-heading {
 
 section#contact {
   background-color: #212529;
-  background-image: url('../assets/img/map-image.png');
+  background-image: url('/assets/img/map-image.png');
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -583,3 +581,9 @@ section#about {
   border: 1px solid #a4a4a4;
   z-index: 10;
   color: #1f1f1f;
+}
+
+.card-description.active {
+  height: 100%;
+  color: #1e1e1e;
+}

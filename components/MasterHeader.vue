@@ -18,10 +18,8 @@ const headerRef = ref<HTMLElement | null>(null)
 const typeRef = ref<HTMLElement | null>(null)
 const { handleClick } = useSmoothScroll()
 
-if (import.meta.client) {
-  useVantaDots(headerRef)
-  useTypewriter(typeRef, "Eo JinSeok's Portfolio.", { loop: true })
-}
+useVantaDots(headerRef)
+useTypewriter(typeRef, "Eo JinSeok's Portfolio.", { loop: true })
 
 function onClick(e: MouseEvent) {
   handleClick(e)
