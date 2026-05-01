@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-zinc-950 text-zinc-100 antialiased;
+    font-family: 'Montserrat', 'Noto Sans KR', system-ui, -apple-system,
+      sans-serif;
+  }
+
+  ::selection {
+    @apply bg-indigo-500/30 text-white;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-balance;
+  }
+
+  p {
+    @apply leading-relaxed;
+  }
+}
+
+@layer components {
+  .section {
+    @apply relative px-4 py-24 sm:py-32;
+  }
+
+  .section-inner {
+    @apply mx-auto w-full max-w-6xl;
+  }
+
+  .eyebrow {
+    @apply mb-3 inline-block text-sm font-medium uppercase tracking-[0.2em] text-indigo-400;
+  }
+
+  .section-title {
+    @apply text-3xl font-bold tracking-tight text-white sm:text-4xl;
+    font-family: 'Roboto Slab', serif;
+  }
+
+  .section-subtitle {
+    @apply mt-3 text-base text-zinc-400 sm:text-lg;
+  }
+
+  .surface {
+    @apply rounded-2xl border border-zinc-800 bg-zinc-900/60 backdrop-blur;
+  }
+
+  .btn-cta {
+    @apply inline-flex items-center gap-2 rounded-full bg-indigo-500 px-7 py-3.5 text-sm font-semibold uppercase tracking-wider text-white shadow-lg shadow-indigo-500/30 transition hover:bg-indigo-400 hover:shadow-indigo-400/40;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 rounded-full border border-zinc-700 px-5 py-2 text-sm font-medium text-zinc-200 transition hover:border-zinc-500 hover:bg-zinc-800/60 hover:text-white;
+  }
+
+  .btn-link {
+    @apply inline-flex items-center gap-1.5 text-sm font-medium text-indigo-300 transition hover:text-indigo-200;
+  }
+
+  .prose-invert-tight {
+    @apply prose prose-invert max-w-none prose-p:my-3 prose-li:my-1 prose-headings:font-semibold prose-a:text-indigo-300 hover:prose-a:text-indigo-200 prose-code:text-indigo-200 prose-code:before:content-none prose-code:after:content-none;
+  }
+
+  .prose-invert-tight :where(code):not(pre code) {
+    @apply rounded-md border border-zinc-800 bg-zinc-900/80 px-1.5 py-0.5 text-[0.9em] font-medium;
+  }
+
+  .prose-invert-tight pre {
+    @apply overflow-x-auto rounded-xl border border-zinc-800 bg-zinc-950 p-5 text-sm leading-relaxed;
+  }
+
+  .prose-invert-tight pre code {
+    @apply bg-transparent p-0 text-zinc-100;
+  }
+
+  .prose-invert-tight pre .line {
+    @apply block;
+  }
+}

@@ -1,123 +1,106 @@
 <template>
-  <section class="page-section bg-light" id="portfolio2">
-    <div class="container">
-      <div class="card">
-        <h5
-          class="
-            text-uppercase
-            font-weight-bold
-            white-text
-            text-center
-            py-4
-            px-4
-            text-white
-          "
-          style="background-color: #3f51b5"
+  <article class="surface overflow-hidden">
+    <header
+      class="flex flex-col gap-3 border-b border-zinc-800 bg-gradient-to-r from-zinc-800/40 to-zinc-900/40 px-6 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-8"
+    >
+      <div>
+        <span
+          class="inline-block rounded-full border border-zinc-700 bg-zinc-800/60 px-3 py-1 text-xs font-medium uppercase tracking-wider text-zinc-300"
+          >이전 직장</span
         >
-          (주)하벤
-        </h5>
-        <div
-          class="
-            px-5
-            mb-5
-            pb-3
-            lead
-            text-muted
-            mt-3
-            border-top border-bottom
-            bg-body-tertiary
-            p-3
-            mb-5
-          "
+        <h3 class="mt-2 text-xl font-bold text-white sm:text-2xl">(주)하벤</h3>
+        <p class="mt-1 text-sm text-zinc-400">Node.js Developer</p>
+      </div>
+      <div class="flex items-center gap-2 text-sm text-zinc-400">
+        <Icon name="lucide:calendar-days" />
+        <span>2021.04 — 2024.09 · 3년 6개월</span>
+      </div>
+    </header>
+
+    <div class="px-6 py-6 sm:px-8 sm:py-7">
+      <h4
+        class="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-zinc-500"
+      >
+        주요 업무
+      </h4>
+      <ul class="space-y-2.5">
+        <li
+          v-for="(duty, i) in duties"
+          :key="i"
+          class="flex items-start gap-3 text-zinc-300"
         >
-          <!-- 재직 기간-->
-          <p class="mb-0 text-muted small">
-            <!-- icon -->
-            <i class="fas fa-calendar-alt mr-2"></i>
-            <strong>Node.js Developer</strong>
-          </p>
-          <span class="text-muted">2021.04 ~ 2024.09 (3년 6개월)</span>
-        </div>
+          <Icon
+            name="lucide:check"
+            class="mt-1 shrink-0 text-indigo-400"
+            size="1em"
+          />
+          <span>{{ duty }}</span>
+        </li>
+      </ul>
 
-        <div class="px-5 pb-3 lead text-muted mt-3 bg-body-tertiary p-3 mb-1">
-          <h6 class="text-muted mb-3 font-weight-bold lead">주요 업무</h6>
-          <ul class="list-unstyled mb-0 text-muted small">
-            <li class="mb-2">
-              <i class="fas fa-check mr-2"></i> 앱과 연계되는 백엔드 서버 개발
-              및 유지 보수
-            </li>
-            <li class="mb-2">
-              <i class="fas fa-check mr-2"></i> 자사 제품과 연동되는 대시보드
-              사이트 개발 및 유지 보수
-            </li>
-            <li class="mb-2">
-              <i class="fas fa-check mr-2"></i> 인프라 구축, 운영, 배포 등
-              전반적인 DevOps 구축 및 관리
-            </li>
-          </ul>
-        </div>
+      <div v-if="sortedContents.length" class="mt-6 border-t border-zinc-800 pt-6">
+        <button
+          type="button"
+          class="flex w-full items-center justify-between gap-2 text-left text-sm font-semibold uppercase tracking-wider text-zinc-300 transition hover:text-white"
+          :aria-expanded="expanded"
+          @click="expanded = !expanded"
+        >
+          <span class="flex items-center gap-2">
+            <Icon name="lucide:file-text" class="text-indigo-300" />
+            상세 내용 ({{ sortedContents.length }}건)
+          </span>
+          <Icon
+            :name="expanded ? 'lucide:chevron-up' : 'lucide:chevron-down'"
+            class="text-zinc-400"
+          />
+        </button>
 
-        <div class="px-5 mb-5 pb-3 lead text-muted bg-body-tertiary p-3">
-          <details>
-            <summary class="text-muted mb-3 font-weight-bold">
-              상세 내용
-            </summary>
-            <div class="row" v-for="(item, index) in contents" :key="index">
-              <a id="career-dashboard"></a>
-              <div class="col-md-12 mb-4">
-                <div class="row no-gutters">
-                  <div class="col-md-12">
-                    <div class="card-body">
-                      <p class="card-text card-description active">
-                        <nuxt-content :document="item"></nuxt-content>
-                      </p>
-                      <br />
-                      <br />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </details>
-        </div>
+        <Transition
+          enter-active-class="transition duration-200 ease-out"
+          enter-from-class="opacity-0"
+          enter-to-class="opacity-100"
+          leave-active-class="transition duration-150 ease-in"
+          leave-from-class="opacity-100"
+          leave-to-class="opacity-0"
+        >
+          <div v-if="expanded" class="mt-5 space-y-6">
+            <article
+              v-for="item in sortedContents"
+              :key="item.path"
+              class="rounded-xl border border-zinc-800 bg-zinc-950/60 px-5 py-4"
+            >
+              <ContentRenderer :value="item" class="prose-invert-tight" />
+            </article>
+          </div>
+        </Transition>
       </div>
     </div>
-  </section>
+  </article>
 </template>
-<script lang="ts">
-import { IContentDocument } from '@nuxt/content/types/content';
 
-import Vue from 'vue';
+<script setup lang="ts">
+const duties = [
+  '앱과 연계되는 백엔드 서버 개발 및 유지 보수',
+  '자사 제품과 연동되는 대시보드 사이트 개발 및 유지 보수',
+  '인프라 구축, 운영, 배포 등 전반적인 DevOps 구축 및 관리',
+]
 
-export default Vue.extend({
-  data() {
-    return {
-      contents: <any[]>[],
-    };
-  },
-  async mounted() {
-    await this.loadDashboardData();
-  },
-  methods: {
-    async loadDashboardData() {
-      this.contents = await this.$content('career').fetch<IContentDocument[]>();
+const expanded = ref(false)
 
-      const re = /^([\d]+)\-(.*)/;
+const { data: contents } = await useAsyncData('career-all', () =>
+  queryCollection('career').all(),
+)
 
-      // 정렬
-      this.contents = this.contents.sort((a, b) => {
-        const prev = <string>a.path.split('/').pop();
-        const next = <string>b.path.split('/').pop();
-
-        const group1 = re.exec(prev)!;
-        const group2 = re.exec(next)!;
-
-        return parseInt(group2[1], 10) - parseInt(group1[1], 10);
-
-        // return parseInt(next.slice(0, 1)) - parseInt(prev.slice(0, 1));
-      });
-    },
-  },
-});
+const sortedContents = computed(() => {
+  const list = contents.value ?? []
+  const re = /^([\d]+)-(.*)/
+  return [...list].sort((a, b) => {
+    const prev = String(a.path).split('/').pop() ?? ''
+    const next = String(b.path).split('/').pop() ?? ''
+    const g1 = re.exec(prev)
+    const g2 = re.exec(next)
+    if (!g1 || !g2) return 0
+    return parseInt(g2[1], 10) - parseInt(g1[1], 10)
+  })
+})
 </script>
-<style lang="scss"></style>

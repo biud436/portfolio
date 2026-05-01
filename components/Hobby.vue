@@ -1,56 +1,24 @@
 <template>
-  <section class="page-section bg-light" id="portfolio2">
-    <div class="container">
+  <section v-if="hobby" class="section">
+    <div class="section-inner">
       <div class="text-center">
-        <h2 class="section-heading text-uppercase">기타 프로젝트</h2>
-        <h3 class="section-subheading text-muted"></h3>
+        <span class="eyebrow">Etc</span>
+        <h2 class="section-title">기타 프로젝트</h2>
+        <p class="section-subtitle">크고 작은 사이드 작업들.</p>
       </div>
 
-      <div class="row">
-        <a id="career-dashboard"></a>
-        <div class="col-md-12 mb-4">
-          <div class="row no-gutters">
-            <div class="col-md-12">
-              <div class="card-body">
-                <p
-                  class="
-                    card-text-non-interactive card-description-non-interactive
-                    active
-                  "
-                >
-                  <nuxt-content :document="contents.hobby"></nuxt-content>
-                </p>
-                <br />
-                <br />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <article
+        class="surface mx-auto mt-12 max-w-3xl px-6 py-8 sm:px-10 sm:py-10"
+      >
+        <ContentRenderer :value="hobby" class="prose-invert-tight" />
+      </article>
     </div>
   </section>
 </template>
-<script lang="ts">
-import Vue from 'vue';
 
-export default Vue.extend({
-  data() {
-    return {
-      contents: {
-        hobby: {},
-      },
-    };
-  },
-  async mounted() {
-    await this.loadDashboardData();
-  },
-  methods: {
-    async loadDashboardData() {
-      const markdown = await this.$content('projects', 'hobby').fetch();
-
-      this.contents.hobby = markdown;
-    },
-  },
-});
+<script setup lang="ts">
+const { data: hobby } = await useAsyncData('projects-hobby', async () => {
+  const all = await queryCollection('projects').all()
+  return all.find((c) => String(c.path).endsWith('/hobby')) ?? null
+})
 </script>
-<style lang="scss"></style>

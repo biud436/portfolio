@@ -1,57 +1,32 @@
 <template>
   <div>
-    <master-header />
-    <contact />
-    <my-skill-list />
-    <PortfolioCareerCarnotfleet />
-    <PortfolioCareerHarven />
-    <portfolio />
-    <hobby />
-    <clients />
-    <my-footer />
-    <project-list />
+    <MasterHeader />
+    <MySkillList />
+    <Contact />
+
+    <section id="career" class="section">
+      <div class="section-inner">
+        <div class="text-center">
+          <span class="eyebrow">Experience</span>
+          <h2 class="section-title">경력</h2>
+          <p class="section-subtitle">
+            이전 직장에서 현재까지의 경력 사항.
+          </p>
+        </div>
+        <div class="mt-12 space-y-6">
+          <PortfolioCareerCarnotfleet />
+          <PortfolioCareerHarven />
+        </div>
+      </div>
+    </section>
+
+    <Portfolio />
+    <Hobby />
+    <MyFooter />
+    <ProjectList />
   </div>
 </template>
 
-<script>
-import Vue from 'vue';
-import MyNavBar from '../components/MyNavBar.vue';
-import MasterHeader from '../components/MasterHeader.vue';
-import SkillList from '../components/SkillList.vue';
-import Portfolio from '../components/Portfolio.vue';
-import Clients from '../components/Clients.vue';
-import Contact from '../components/Contact.vue';
-import MyFooter from '../components/MyFooter.vue';
-import ProjectList from '../components/ProjectList.vue';
-import PortfolioCareerHarven from '../components/PortfolioCareerHarven.vue';
-import PortfolioCareerCarnotfleet from '~/components/PortfolioCareerCarnotfleet.vue';
-import MySkillList from '~/components/MySkillList.vue';
-import Hobby from '~/components/Hobby.vue';
-
-export default Vue.extend({
-  layout: 'main',
-  components: {
-    MyNavBar,
-    MasterHeader,
-    SkillList,
-    Portfolio,
-    Clients,
-    Contact,
-    MyFooter,
-    ProjectList,
-    PortfolioCareerHarven,
-    MySkillList,
-    Hobby,
-  },
-});
+<script setup lang="ts">
+definePageMeta({ layout: 'main' })
 </script>
-<style lang="css">
-body {
-  background-color: #222222 !important;
-}
-
-nav,
-footer {
-  color: #d3d3d3;
-}
-</style>

@@ -1,26 +1,26 @@
 <template>
-  <div class="page-section bg-white">
-    <div class="container">
+  <section class="section">
+    <div class="section-inner">
       <div class="text-center">
-        <h2 class="section-heading text-uppercase">소개</h2>
-        <h3 class="section-subheading text-muted"></h3>
+        <span class="eyebrow">About</span>
+        <h2 class="section-title">자기소개</h2>
       </div>
-      <div class="row">
-        <nuxt-content :document="mySkillList" />
-      </div>
+
+      <article
+        class="surface mx-auto mt-12 max-w-3xl px-6 py-8 sm:px-10 sm:py-10"
+      >
+        <ContentRenderer
+          v-if="skill"
+          :value="skill"
+          class="prose-invert-tight"
+        />
+      </article>
     </div>
-  </div>
+  </section>
 </template>
-<script>
-export default {
-  data() {
-    return {
-      mySkillList: {},
-    };
-  },
-  async mounted() {
-    this.mySkillList = await this.$content('skills', 'skillList').fetch();
-  },
-};
+
+<script setup lang="ts">
+const { data: skill } = await useAsyncData('skill-skillList', () =>
+  queryCollection('skills').first(),
+)
 </script>
-<style lang="scss"></style>

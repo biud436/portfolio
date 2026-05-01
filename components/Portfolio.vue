@@ -1,558 +1,97 @@
 <template>
-  <section class="page-section bg-light" id="portfolio">
-    <div class="container">
+  <section id="portfolio" class="section overflow-hidden">
+    <div class="section-inner">
       <div class="text-center">
-        <h2 class="section-heading text-uppercase">개인 프로젝트</h2>
-        <h3 class="section-subheading text-muted"></h3>
-      </div>
-      <!-- custom server framework -->
-      <div class="row">
-        <div class="col-md-12 mb-4">
-          <div class="row no-gutters">
-            <div class="col-md-4">
-              <div class="portfolio-item">
-                <div class="portfolio-link" href="#">
-                  <div class="portfolio-hover">
-                    <div class="portfolio-hover-content">
-                      <i class="fas fa-plus fa-3x"></i>
-                    </div>
-                  </div>
-                  <img
-                    class="img-fluid"
-                    src="https://github.com/biud436/blog-front/assets/13586185/40629880-5785-4733-a95f-24f9f2b23641"
-                    width="400"
-                    height="300"
-                    alt=""
-                  />
-                </div>
-                <div class="portfolio-caption">
-                  <div class="portfolio-caption-heading">
-                    <a name="vscode-extension">StingerLoom</a>
-                  </div>
-                  <div class="portfolio-caption-subheading text-muted">
-                    프레임워크
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-8">
-              <div class="card-body">
-                <p class="card-text card-description active">
-                  <nuxt-content :document="contents.customServer" />
-                </p>
-                <a
-                  class="btn btn-secondary"
-                  href="https://github.com/biud436/stingerloom"
-                  >Github 저장소</a
-                >
-              </div>
-            </div>
-          </div>
-        </div>
+        <span class="eyebrow">Projects</span>
+        <h2 class="section-title">개인 프로젝트</h2>
+        <p class="section-subtitle">
+          최신순. 회사 업무가 아닌, 개인 시간에 만들어 본 작업들입니다.
+        </p>
       </div>
 
-      <!-- blog -->
-      <div class="row">
-        <div class="col-md-12 mb-4">
-          <div class="row no-gutters">
-            <div class="col-md-4">
-              <div class="portfolio-item">
-                <div class="portfolio-link" href="#">
-                  <div class="portfolio-hover">
-                    <div class="portfolio-hover-content">
-                      <i class="fas fa-plus fa-3x"></i>
-                    </div>
-                  </div>
-                  <img
-                    class="img-fluid"
-                    src="https://github.com/biud436/blog-api-server/assets/13586185/6279ed5b-9eec-4d59-bba6-d0961b107ebb"
-                    width="400"
-                    height="300"
-                    alt=""
-                  />
-                </div>
-                <div class="portfolio-caption">
-                  <div class="portfolio-caption-heading">
-                    <a name="vscode-extension">블로그</a>
-                  </div>
-                  <div class="portfolio-caption-subheading text-muted">
-                    웹사이트
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-8">
-              <div class="card-body">
-                <p class="card-text card-description active">
-                  <nuxt-content :document="contents.blog" />
-                </p>
-                <a
-                  class="btn btn-secondary"
-                  href="https://github.com/biud436/blog-api-server"
-                  >서버 : Github 저장소</a
-                >
-                <a
-                  class="btn btn-secondary"
-                  href="https://github.com/biud436/blog-front"
-                  >프론트 : Github 저장소</a
-                >
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <ol
+        class="relative mx-auto mt-20 max-w-5xl space-y-20 sm:space-y-32 sm:before:absolute sm:before:inset-y-0 sm:before:left-1/2 sm:before:w-px sm:before:-translate-x-1/2 sm:before:bg-gradient-to-b sm:before:from-transparent sm:before:via-zinc-800 sm:before:to-transparent"
+      >
+        <li
+          v-for="(item, i) in items"
+          :key="item.key"
+          class="relative"
+        >
+          <span
+            class="pointer-events-none absolute left-1/2 top-1/2 hidden size-3 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-indigo-400 bg-zinc-950 sm:block"
+            aria-hidden="true"
+          ></span>
 
-      <!-- weather-react -->
-      <div class="row">
-        <div class="col-md-12 mb-4">
-          <div class="row no-gutters">
-            <div class="col-md-4">
-              <div class="portfolio-item">
-                <div class="portfolio-link" href="#">
-                  <div class="portfolio-hover">
-                    <div class="portfolio-hover-content">
-                      <i class="fas fa-plus fa-3x"></i>
-                    </div>
-                  </div>
-                  <img
-                    class="img-fluid"
-                    src="https://user-images.githubusercontent.com/13586185/169680914-72cf246c-e00c-4c33-8c31-00228a08313a.gif"
-                    width="400"
-                    height="300"
-                    alt=""
-                  />
-                </div>
-                <div class="portfolio-caption">
-                  <div class="portfolio-caption-heading">
-                    <a name="vscode-extension">날씨 (리액트 버전)</a>
-                  </div>
-                  <div class="portfolio-caption-subheading text-muted">
-                    날씨
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-8">
-              <div class="card-body">
-                <p class="card-text card-description active">
-                  <nuxt-content :document="contents.weatherReact" />
-                </p>
-                <a
-                  class="btn btn-secondary"
-                  href="https://github.com/biud436/weather-react"
-                  >깃허브로 이동</a
-                >
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- vscode-rgss-script-compiler -->
-      <div class="row">
-        <div class="col-md-12 mb-4">
-          <div class="row no-gutters">
-            <div class="col-md-4">
-              <div class="portfolio-item">
-                <div class="portfolio-link" href="#">
-                  <div class="portfolio-hover">
-                    <div class="portfolio-hover-content">
-                      <i class="fas fa-plus fa-3x"></i>
-                    </div>
-                  </div>
-                  <img
-                    class="img-fluid"
-                    src="https://biud436.gallerycdn.vsassets.io/extensions/biud436/rgss-script-compiler/0.0.14/1648001730750/Microsoft.VisualStudio.Services.Icons.Default"
-                    width="400"
-                    height="300"
-                    alt=""
-                  />
-                </div>
-                <div class="portfolio-caption">
-                  <div class="portfolio-caption-heading">
-                    <a name="vscode-extension">RGSS 스크립트 컴파일러</a>
-                  </div>
-                  <div class="portfolio-caption-subheading text-muted">
-                    VSCode Extension
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-8">
-              <div class="card-body">
-                <p class="card-text card-description active">
-                  <nuxt-content :document="contents.rgssCompiler" />
-                </p>
-                <a
-                  class="btn btn-primary"
-                  href="https://marketplace.visualstudio.com/items?itemName=biud436.rgss-script-compiler"
-                  >마켓 플레이스</a
-                >
-                <a
-                  class="btn btn-secondary"
-                  href="https://github.com/biud436/vscode-rgss-script-compiler"
-                  >깃허브로 이동</a
-                >
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- 쇼핑몰 / 2020.10.01 ~ 2021.01.05 (3개월) -->
-      <div class="row">
-        <a id="shopping"></a>
-        <div class="col-md-12 mb-4">
-          <div class="row no-gutters">
-            <div class="col-md-4">
-              <div class="portfolio-item">
-                <a
-                  class="portfolio-link"
-                  data-toggle="modal"
-                  href="#portfolioModal1"
-                >
-                  <div class="portfolio-hover">
-                    <div class="portfolio-hover-content">
-                      <i class="fas fa-plus fa-3x"></i>
-                    </div>
-                  </div>
-                  <img
-                    class="img-fluid"
-                    src="/assets/img/portfolio/portfolio1.png"
-                    width="400"
-                    height="300"
-                    alt=""
-                  />
-                </a>
-                <div class="portfolio-caption">
-                  <div class="portfolio-caption-heading">쇼핑몰 프로젝트</div>
-                  <div class="portfolio-caption-subheading text-muted">
-                    쇼핑몰
-                  </div>
-                </div>
+          <button
+            type="button"
+            class="group relative grid w-full items-center gap-6 text-left sm:grid-cols-2 sm:gap-12"
+            :class="i % 2 === 0 ? '' : 'sm:[&>*:first-child]:order-2'"
+            @click="openModal(item.key)"
+          >
+            <div
+              class="relative aspect-[16/10] w-full overflow-hidden rounded-2xl border border-zinc-800/80 bg-zinc-900 shadow-2xl shadow-black/40 transition group-hover:border-indigo-400/60 group-hover:shadow-indigo-500/10"
+            >
+              <img
+                :src="item.image"
+                :alt="item.title"
+                class="size-full object-cover transition duration-700 group-hover:scale-[1.04]"
+                loading="lazy"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-zinc-950/60 via-transparent to-transparent transition group-hover:from-zinc-950/30"
+              ></div>
+              <div
+                class="absolute right-3 top-3 grid size-10 place-items-center rounded-full bg-indigo-500/90 text-white opacity-0 shadow-lg shadow-indigo-500/40 transition group-hover:opacity-100"
+                aria-hidden="true"
+              >
+                <Icon name="lucide:arrow-up-right" size="1.1em" />
               </div>
             </div>
 
-            <div class="col-md-8">
-              <div class="card-body">
-                <p class="card-text card-description active">
-                  <nuxt-content :document="contents.shoppingMall" />
-                </p>
-                <br />
-                <br />
-                <h5 class="card-text">기타 :</h5>
-                <a
-                  class="btn btn-secondary"
-                  href="https://github.com/biud436/project_one"
-                  >깃허브</a
+            <div class="space-y-4">
+              <div class="flex items-center gap-3">
+                <span
+                  class="font-mono text-3xl font-bold tracking-tight text-zinc-700 transition group-hover:text-indigo-400 sm:text-4xl"
                 >
+                  {{ String(i + 1).padStart(2, '0') }}
+                </span>
+                <span
+                  class="rounded-full border border-zinc-800 bg-zinc-900/60 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.2em] text-zinc-400"
+                >
+                  {{ item.period }}
+                </span>
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- 주간 날씨 (2020년 09월 25일) -->
-      <div class="row">
-        <div class="col-md-12 mb-4">
-          <div class="row no-gutters">
-            <div class="col-md-4">
-              <div class="portfolio-item">
-                <a
-                  class="portfolio-link"
-                  data-toggle="modal"
-                  href="#portfolioModal2"
-                >
-                  <div class="portfolio-hover">
-                    <div class="portfolio-hover-content">
-                      <i class="fas fa-plus fa-3x"></i>
-                    </div>
-                  </div>
-                  <img
-                    class="img-fluid"
-                    src="/assets/img/portfolio/weather.png"
-                    width="400"
-                    height="300"
-                    alt=""
+
+              <h3
+                class="text-2xl font-bold tracking-tight text-white transition group-hover:text-indigo-200 sm:text-3xl"
+                style="font-family: 'Roboto Slab', serif"
+              >
+                {{ item.title }}
+              </h3>
+
+              <p class="text-base text-zinc-400">
+                {{ item.subtitle }}
+              </p>
+
+              <div class="flex items-center gap-2 pt-2">
+                <span class="btn-link">
+                  자세히 보기
+                  <Icon
+                    name="lucide:arrow-right"
+                    class="transition group-hover:translate-x-1"
+                    size="1em"
                   />
-                </a>
-                <div class="portfolio-caption">
-                  <div class="portfolio-caption-heading">
-                    <a name="weather">주간 날씨</a>
-                  </div>
-                  <div class="portfolio-caption-subheading text-muted">
-                    날씨
-                  </div>
-                </div>
+                </span>
               </div>
             </div>
-            <div class="col-md-8">
-              <div class="card-body">
-                <p class="card-text card-description active">
-                  <nuxt-content :document="contents.weather" />
-                </p>
-                <a
-                  class="btn btn-danger"
-                  href="http://biud436.github.io/weather/"
-                  >포트폴리오 보기</a
-                >
-                <a
-                  class="btn btn-secondary"
-                  href="https://github.com/biud436/weather"
-                  >깃허브로 이동</a
-                >
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- 3 맵 에디터 / 2020.10.01 ~ 2020.12 (2개월) -->
-      <div class="row">
-        <div class="col-md-12 mb-4">
-          <div class="row no-gutters">
-            <div class="col-md-4">
-              <div class="portfolio-item">
-                <a
-                  class="portfolio-link"
-                  data-toggle="modal"
-                  href="#portfolioModal3"
-                >
-                  <div class="portfolio-hover">
-                    <div class="portfolio-hover-content">
-                      <i class="fas fa-plus fa-3x"></i>
-                    </div>
-                  </div>
-                  <img
-                    class="img-fluid"
-                    src="https://github.com/biud436/Initial2D/raw/master/docs/img/new_editor.png"
-                    alt=""
-                  />
-                </a>
-                <div class="portfolio-caption">
-                  <div class="portfolio-caption-heading">
-                    <a name="map-editor">맵 에디터</a>
-                  </div>
-                  <div class="portfolio-caption-subheading text-muted">
-                    Initial Editor
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-8">
-              <div class="card-body">
-                <p class="card-text card-description active">
-                  <nuxt-content :document="contents.initialEditor" />
-                </p>
-                <!-- <a class="btn btn-danger" href="https://biud436.xyz:9007">HTTPS 서버(AWS EC2)</a> -->
-                <h5 class="card-text">기타 :</h5>
-                <a
-                  class="btn btn-secondary"
-                  href="https://github.com/biud436/InitialEditor"
-                  >깃허브로 이동</a
-                >
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- 안드로이드 APK 빌더 / 2019.11 ~ 2020.02 (3개월) -->
-      <div class="row">
-        <div class="col-md-12 mb-4">
-          <div class="row no-gutters">
-            <div class="col-md-4">
-              <div class="portfolio-item">
-                <a
-                  class="portfolio-link"
-                  data-toggle="modal"
-                  href="#portfolioModal5"
-                >
-                  <div class="portfolio-hover">
-                    <div class="portfolio-hover-content">
-                      <i class="fas fa-plus fa-3x"></i>
-                    </div>
-                  </div>
-                  <img
-                    class="img-fluid"
-                    src="https://github.com/biud436/MV-App-Builder/raw/master/screenshot.png"
-                    alt=""
-                  />
-                </a>
-                <div class="portfolio-caption">
-                  <div class="portfolio-caption-heading">
-                    <a name="short-url">안드로이드 APK 빌더</a>
-                  </div>
-                  <div class="portfolio-caption-subheading text-muted">
-                    빌더
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-8">
-              <div class="card-body">
-                <p class="card-text card-description active">
-                  <nuxt-content :document="contents.androidAppBuilder" />
-                </p>
-                <h5 class="card-text">다운로드 :</h5>
-                <a
-                  class="btn btn-danger"
-                  href="https://github.com/biud436/MV-App-Builder/releases"
-                  >Releases</a
-                >
-                <br />
-                <br />
-                <h5 class="card-text">개발 기간 :</h5>
-                <p>3개월</p>
-                <br />
-                <h5 class="card-text">기타 :</h5>
-                <a
-                  class="btn btn-secondary"
-                  href="https://github.com/biud436/MV-App-Builder"
-                  >깃허브</a
-                >
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Initial2D (게임 엔진) -->
-      <div class="row">
-        <div class="col-md-12 mb-4">
-          <div class="row no-gutters">
-            <div class="col-md-4">
-              <div class="portfolio-item">
-                <a
-                  class="portfolio-link"
-                  data-toggle="modal"
-                  href="#portfolioModal6"
-                >
-                  <div class="portfolio-hover">
-                    <div class="portfolio-hover-content">
-                      <i class="fas fa-plus fa-3x"></i>
-                    </div>
-                  </div>
-                  <img
-                    class="img-fluid"
-                    src="/assets/img/portfolio/pp6.png"
-                    alt=""
-                  />
-                </a>
-                <div class="portfolio-caption">
-                  <div class="portfolio-caption-heading">
-                    <a name="short-url">Initial2D</a>
-                  </div>
-                  <div class="portfolio-caption-subheading text-muted">
-                    게임 엔진
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-8">
-              <div class="card-body">
-                <p class="card-text"></p>
-                <br />
-                <p class="card-text card-description active">
-                  <nuxt-content :document="contents.initial2D" />
-                </p>
-                <h5 class="card-text">기타 :</h5>
-                <a
-                  class="btn btn-secondary"
-                  href="https://github.com/biud436/Initial2D"
-                  >깃허브</a
-                >
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+          </button>
+        </li>
+      </ol>
     </div>
   </section>
 </template>
-<script lang="ts">
-import Vue from 'vue';
 
-declare global {
-  interface Window {
-    masked: Function;
-  }
-}
-
-export default Vue.extend({
-  data() {
-    return {
-      contents: {
-        shoppingMall: {},
-        weather: {},
-        initial2D: {},
-        androidAppBuilder: {},
-        initialEditor: {},
-        rgssCompiler: {},
-        weatherReact: {},
-        blog: {},
-        customServer: {},
-      },
-    };
-  },
-  async mounted() {
-    await this.loadPortfolioShoppingMall();
-    await this.loadPortfolioWeather();
-    await this.loadPortfolioInitial2D();
-    await this.loadPortfolioAndroidAppBuilder();
-    await this.loadPortfolioInitialEditorBuilder();
-    await this.loadRGSSCompiler();
-    await this.loadWeatherReact();
-    await this.loadBlog();
-    await this.loadCustomServer();
-  },
-  methods: {
-    async loadPortfolioShoppingMall() {
-      this.contents.shoppingMall = await this.$content(
-        'projects',
-        'shoppingMall'
-      ).fetch();
-    },
-    async loadPortfolioWeather() {
-      this.contents.weather = await this.$content(
-        'projects',
-        'weather'
-      ).fetch();
-    },
-    async loadPortfolioInitial2D() {
-      this.contents.initial2D = await this.$content(
-        'projects',
-        'initial2D'
-      ).fetch();
-    },
-    async loadPortfolioAndroidAppBuilder() {
-      this.contents.androidAppBuilder = await this.$content(
-        'projects',
-        'androidAppBuilder'
-      ).fetch();
-    },
-    async loadPortfolioInitialEditorBuilder() {
-      this.contents.initialEditor = await this.$content(
-        'projects',
-        'initialEditor'
-      ).fetch();
-    },
-    async loadRGSSCompiler() {
-      this.contents.rgssCompiler = await this.$content(
-        'projects',
-        'rgssCompiler'
-      ).fetch();
-    },
-    async loadWeatherReact() {
-      this.contents.weatherReact = await this.$content(
-        'projects',
-        'weatherReact'
-      ).fetch();
-    },
-    async loadBlog() {
-      this.contents.blog = await this.$content('projects', 'blog').fetch();
-    },
-    async loadCustomServer() {
-      this.contents.customServer = await this.$content(
-        'projects',
-        'customServer'
-      ).fetch();
-    },
-  },
-});
+<script setup lang="ts">
+const items = useProjectsItems()
+const { open: openModal } = useModal()
 </script>
-<style lang="scss"></style>
