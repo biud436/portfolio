@@ -12,10 +12,7 @@ export default defineNuxtConfig({
     '@pinia/nuxt',
   ],
 
-  components: [
-    { path: '~/components', pathPrefix: false },
-    { path: '~/components/modals', pathPrefix: false },
-  ],
+  components: [{ path: '~/components', pathPrefix: false }],
 
   css: ['~/assets/css/main.css'],
 
