@@ -11,7 +11,7 @@
         <h3 class="mt-2 text-xl font-bold text-white sm:text-2xl">
           (주)카르노플릿
         </h3>
-        <p class="mt-1 text-sm text-zinc-400">풀스택 개발자</p>
+        <p class="mt-1 text-sm text-zinc-400">Node.js Developer</p>
       </div>
       <div class="flex items-center gap-2 text-sm text-zinc-400">
         <Icon name="lucide:calendar-days" />
