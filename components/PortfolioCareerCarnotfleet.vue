@@ -11,7 +11,7 @@
         <h3 class="mt-2 text-xl font-bold text-white sm:text-2xl">
           (주)카르노플릿
         </h3>
-        <p class="mt-1 text-sm text-zinc-400">Node.js Developer</p>
+        <p class="mt-1 text-sm text-zinc-400">풀스택 개발자</p>
       </div>
       <div class="flex items-center gap-2 text-sm text-zinc-400">
         <Icon name="lucide:calendar-days" />
@@ -32,7 +32,7 @@
             class="mt-1 shrink-0 text-indigo-400"
             size="1em"
           />
-          <span>백엔드 서버 및 프론트엔드 담당</span>
+          <span>백엔드/프론트엔드/앱 담당</span>
         </li>
       </ul>
     </div>
